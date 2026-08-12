@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — encore</title>
+<meta name="description" content="Terms governing use of encore, operated by Rudiment Marketing, LLC.">
+<link rel="icon" href="/favicon.svg">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; background:#0A0A0A; color:#F4F3F1; }
+  * { box-sizing:border-box; }
+  body { font-family:Manrope, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#2FE3A8; text-decoration:none; }
+  a:hover { color:#7FF0C9; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#0A0A0A;">
+  <div style="position:sticky; top:0; z-index:50; background:rgba(10,10,10,.86); backdrop-filter:blur(14px); border-bottom:1px solid #1C1C1C;">
+    <div style="max-width:820px; margin:0 auto; padding:16px 32px; display:flex; align-items:center; gap:20px;">
+      <a href="/" style="display:flex; align-items:center;"><img src="/encore-logo.png" alt="encore" style="height:24px; width:auto; display:block;"></a>
+      <div style="flex:1;"></div>
+      <a href="/privacy.html" style="font-size:13.5px; color:#8F8A82;" style-hover="color:#F4F3F1">Privacy</a>
+      <a href="/" style="font-size:13.5px; color:#8F8A82;" style-hover="color:#F4F3F1">Back to encore</a>
+    </div>
+  </div>
+
+  <div style="max-width:820px; margin:0 auto; padding:72px 32px 120px; display:flex; flex-direction:column; gap:34px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase;">Legal</div>
+      <div style="font-family:Poppins,sans-serif; font-size:42px; font-weight:600; letter-spacing:-.035em; line-height:1.1;">Terms of Service</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6F6A64; letter-spacing:.04em;">Effective August 12, 2026</div>
+    </div>
+
+    <div style="font-size:16.5px; line-height:1.7; color:#A8A29A; text-wrap:pretty;">These Terms govern your use of encore, territory mapping and go-to-market software operated by Rudiment Marketing, LLC (“encore,” “we,” “us,” or “our”). By creating an account or using the service, you agree to these Terms. If you are agreeing on behalf of a company, you confirm you have authority to bind that company.</div>
+
+    <div style="height:1px; background:#1C1C1C;"></div>
+
+    <sc-for list="{{ sections }}" as="s" hint-placeholder-count="13">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:Poppins,sans-serif; font-size:23px; font-weight:600; letter-spacing:-.025em; color:#F4F3F1;">{{ s.title }}</div>
+        <sc-if value="{{ s.hasIntro }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:15.5px; line-height:1.7; color:#A8A29A; text-wrap:pretty;">{{ s.intro }}</div>
+        </sc-if>
+        <sc-if value="{{ s.hasItems }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="4">
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:#2FE3A8; font-size:13px; line-height:1.75; flex-shrink:0;">—</span>
+                <div style="font-size:15.5px; line-height:1.7; color:#A8A29A; text-wrap:pretty;"><span style="color:#F4F3F1; font-weight:600;">{{ it.label }}</span>{{ it.body }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+
+    <div style="height:1px; background:#1C1C1C;"></div>
+
+    <div style="border:1px solid #1D4536; background:#132A22; border-radius:14px; padding:26px 28px; display:flex; flex-direction:column; gap:10px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase;">Contact</div>
+      <div style="font-size:15.5px; line-height:1.7; color:#D6D5D1; text-wrap:pretty;">Rudiment Marketing, LLC. Questions about these Terms: <a href="mailto:hello@fieldencore.com">hello@fieldencore.com</a> or <a href="mailto:support@fieldencore.com">support@fieldencore.com</a>.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const raw = [
+      { title: 'The service', intro: 'encore lets you upload or sync your accounts, view them on a map, filter by status, build routes, log field activity, ask questions in AI chat, and — on plans that include it — enrich company and contact records. Features available to you depend on the plan you purchase.' },
+      { title: 'Accounts and access', intro: 'You are responsible for your account credentials, for the activity of users you invite to your workspace, and for the API keys you create. Notify us promptly if you believe an account or key has been compromised. You must be at least 18 years old and use encore for business purposes.' },
+
+      { title: 'Your data', intro: 'You keep ownership of the account, territory and activity data you bring into encore. You grant us the rights needed to host, process and display that data in order to run the service for you, including passing the minimum necessary fields to our sub-processors for mapping, enrichment and AI chat. You are responsible for having the right to upload the records you upload, and for using them in a manner consistent with applicable law.' },
+      { title: 'Plans, billing and credits', items: [
+        { label: 'Plans: ', body: 'Base is $149 per month, Standard is $299 per month, and Growth is $599 per month. Custom plans are quoted and billed monthly on the terms in your order. Pricing is per workspace, not per seat \u2014 adding users does not change your price.' },
+        { label: 'Billing: ', body: 'plans are billed monthly in advance through Stripe unless we have agreed otherwise in writing.' },
+        { label: 'Credits: ', body: 'plans that include enrichment credits reset the allowance at the start of each billing period. Unused credits do not roll over. Credits are consumed when a lookup is returned, whether or not you act on the result.' },
+        { label: 'Changes to your plan: ', body: 'upgrades, downgrades and cancellations are handled by us directly rather than through a self-serve button. Email hello@fieldencore.com or support@fieldencore.com, or message us in your Slack channel if your plan includes one, and we will make the change. We do this so a downgrade does not silently disconnect a CRM or drop credits your team is mid-way through using. Upgrades take effect immediately with a prorated charge; downgrades and cancellations take effect at the end of the current billing period.' },
+        { label: 'Cancellation: ', body: 'you may cancel at any time \u2014 there is no minimum term and no cancellation fee. Contact us and we will confirm the effective date in writing, keep your workspace available through the end of the paid period, and provide an export of your account and territory data on request.' },
+        { label: 'Refunds: ', body: 'fees are non-refundable except where required by law. We do not refund unused credits.' },
+        { label: 'Price changes: ', body: 'we may change plan pricing with at least 30 days notice by email. Continued use after the effective date constitutes acceptance.' }
+      ]},
+      { title: 'Enrichment data', intro: 'Enrichment records are supplied by third-party providers and are provided as-is. We make no guarantee that a contact record is current, complete or accurate, and a returned record does not constitute permission to contact that person. You are solely responsible for your outreach and for complying with applicable law, including CAN-SPAM, TCPA, GDPR and any do-not-call obligations. You may not resell enriched records, use them to build a marketing list for a third party, or use them for any purpose other than your own sales and service activity.' },
+      { title: 'Acceptable use', intro: 'You agree not to: reverse engineer or attempt to derive the source of the service; resell or sublicense access without our written agreement; scrape or bulk-extract data beyond what your plan\u2019s API permits; upload unlawful content or data you have no right to; interfere with the integrity or performance of the service; or use encore to harass, defraud or unlawfully surveil any person.' },
+      { title: 'AI chat', intro: 'AI chat generates answers from your own workspace data. Output may be incomplete or wrong and should be reviewed before you act on it. You are responsible for decisions made using AI output. Do not enter data in chat that you are not permitted to process.' },
+      { title: 'Third-party integrations', intro: 'When you connect a CRM or another third-party system, your use of that system remains governed by your agreement with that provider. We are not responsible for a third-party system\u2019s availability, accuracy or changes to its API, and an integration may stop working if the provider changes or withdraws access.' },
+      { title: 'Availability and support', intro: 'We aim to keep encore available and will give advance notice of planned maintenance where practical, but we do not commit to a specific uptime figure unless stated in a written order. Support is provided by email on all plans. Plans that include a dedicated Slack channel receive same-day responses during business hours.' },
+      { title: 'Intellectual property', intro: 'encore, including the software, interface, documentation and brand, is owned by Rudiment Marketing, LLC and protected by intellectual property law. These Terms grant you a limited, non-exclusive, non-transferable right to use the service during your subscription. Feedback you send us may be used to improve the product without obligation to you.' },
+      { title: 'Termination', intro: 'You may cancel at any time by contacting us at support@fieldencore.com; access continues through the end of the paid period and we will confirm the effective date in writing. You may also request deletion of your account and data at that point, as described in the Privacy Policy. We may suspend or terminate access for material breach of these Terms, non-payment, or activity that threatens the security of the service, with notice where practical.' },
+      { title: 'Disclaimers and liability', intro: 'The service is provided “as is” and “as available” without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose and non-infringement. To the maximum extent permitted by law, Rudiment Marketing, LLC is not liable for indirect, incidental, special, consequential or punitive damages, or for lost profits, revenue or data. Our total liability for any claim relating to the service is limited to the fees you paid in the twelve months preceding the claim.' },
+      { title: 'Indemnity', intro: 'You will defend and indemnify Rudiment Marketing, LLC against claims arising from your misuse of the service, the records you upload, your outreach to contacts found through enrichment, or your violation of these Terms or applicable law.' },
+      { title: 'Governing law and changes', intro: 'These Terms are governed by the laws of the State of Utah, without regard to conflict-of-laws rules, and disputes will be brought in the state or federal courts located in Utah. We may update these Terms from time to time; we will post the updated version here and revise the effective date above, and material changes will be communicated by email or in-product notice when appropriate.' }
+    ];
+    return {
+      sections: raw.map(s => ({
+        title: s.title,
+        hasIntro: !!s.intro, intro: s.intro || '',
+        hasItems: !!s.items, items: s.items || []
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
