@@ -31,6 +31,10 @@
     .r-tiers { grid-template-columns:1fr !important; grid-template-rows:auto !important; row-gap:14px !important; }
     .r-card { display:flex !important; flex-direction:column !important; grid-template-rows:auto !important; grid-row:auto !important; }
     .r-nav { display:none !important; }
+    .r-cue { grid-template-columns:1fr !important; }
+    .r-cue > div:first-child { flex-direction:row !important; overflow-x:auto !important; border-right:none !important; border-bottom:1px solid #1A1A1A !important; }
+    .r-cue > div:first-child > div:first-child { display:none !important; }
+    .r-cue [data-cue-tab] { flex-shrink:0 !important; }
   }
   @media (max-width: 640px) {
     .r-sec { padding-left:22px !important; padding-right:22px !important; }
@@ -83,56 +87,69 @@
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6F6A64; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
   </div>
 
-  <!-- GRAPHIC: radius bloom -->
+  <!-- GRAPHIC: Cue, the agent that builds it for you -->
   <div style="max-width:1180px; margin:56px auto 0; padding:0 32px;">
-    <div style="position:relative; border:1px solid #1F1F1F; border-radius:16px; background:#0C0C0C; overflow:hidden; height:440px;">
-      <div style="position:absolute; inset:0; background-image:radial-gradient(#191919 1px, transparent 1px); background-size:26px 26px;"></div>
-      <div style="position:absolute; inset:0; background:radial-gradient(ellipse 46% 62% at 50% 50%, rgba(47,227,168,.10), transparent 72%);"></div>
+    <div class="r-cue" style="border:1px solid #1F1F1F; border-radius:16px; background:#0C0C0C; overflow:hidden; display:grid; grid-template-columns:252px 1fr; min-height:462px;">
 
-      <svg viewBox="0 0 1000 440" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;">
-        <defs>
-          <radialGradient id="core" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#2FE3A8" stop-opacity=".55"></stop>
-            <stop offset="100%" stop-color="#2FE3A8" stop-opacity="0"></stop>
-          </radialGradient>
-        </defs>
-
-        <circle cx="500" cy="220" r="90" fill="none" stroke="#1F3A31" stroke-width="1"></circle>
-        <circle cx="500" cy="220" r="150" fill="none" stroke="#1B2E28" stroke-width="1"></circle>
-        <circle cx="500" cy="220" r="212" fill="none" stroke="#182420" stroke-width="1" stroke-dasharray="3 7"></circle>
-        <circle cx="500" cy="220" r="34" fill="url(#core)"></circle>
-        <circle cx="500" cy="220" r="90" fill="none" stroke="#2FE3A8" stroke-width="1" opacity=".5" style="animation:ring 5.5s ease-out infinite;"></circle>
-        <circle cx="500" cy="220" r="90" fill="none" stroke="#2FE3A8" stroke-width="1" opacity=".5" style="animation:ring 5.5s ease-out 2.75s infinite;"></circle>
-
-        <path d="M500 220 L392 152 L316 196 L268 132" fill="none" stroke="#2FE3A8" stroke-width="1.4" stroke-dasharray="5 6" opacity=".65" style="animation:dash 2.4s linear infinite;"></path>
-        <path d="M500 220 L604 286 L692 258 L760 306" fill="none" stroke="#2FE3A8" stroke-width="1.4" stroke-dasharray="5 6" opacity=".65" style="animation:dash 2.4s linear infinite;"></path>
-
-        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="26">
-          <circle cx="{{ d.x }}" cy="{{ d.y }}" r="{{ d.r }}" fill="{{ d.fill }}" opacity="{{ d.o }}"></circle>
+      <div onClick="{{ onCueTabClick }}" style="border-right:1px solid #1A1A1A; background:#0B0B0D; padding:20px 14px; display:flex; flex-direction:column; gap:5px;">
+        <div style="display:flex; align-items:center; gap:9px; padding:2px 6px 16px;">
+          <div style="{{ cueIconStyle }}">✦</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:#F4F3F1;">Cue</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:#57534C; text-transform:uppercase;">AI Agent</div>
+          </div>
+        </div>
+        <sc-for list="{{ cueTabs }}" as="c" hint-placeholder-count="3">
+          <div data-cue-tab="{{ c.i }}" style="{{ c.rowStyle }}">
+            <span style="{{ c.dotStyle }}"></span>
+            <div style="min-width:0; flex:1;">
+              <div style="{{ c.labelStyle }}">{{ c.label }}<span style="{{ c.tagStyle }}">{{ c.tag }}</span></div>
+              <div style="{{ c.descStyle }}">{{ c.desc }}</div>
+            </div>
+          </div>
         </sc-for>
-
-        <circle cx="500" cy="220" r="7" fill="#2FE3A8"></circle>
-        <circle cx="500" cy="220" r="13" fill="none" stroke="#2FE3A8" stroke-width="1.5" opacity=".5"></circle>
-      </svg>
-
-      <div style="position:absolute; left:50%; top:calc(50% + 34px); transform:translateX(-50%); font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase; white-space:nowrap;">Where your reps are today</div>
-
-      <div style="position:absolute; left:8%; top:16%; border:1px solid #1F1F1F; background:rgba(12,12,12,.92); border-radius:10px; padding:11px 14px; backdrop-filter:blur(6px);">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#57534C; margin-bottom:5px;">WITHIN 15 MIN</div>
-        <div style="font-size:19px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;">38 accounts</div>
       </div>
 
-      <div style="position:absolute; right:8%; top:24%; border:1px solid #1D4536; background:rgba(19,42,34,.9); border-radius:10px; padding:11px 14px; backdrop-filter:blur(6px);">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#2FE3A8; margin-bottom:5px;">NOT IN YOUR CRM</div>
-        <div style="font-size:19px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;">14 worth a stop</div>
-      </div>
-
-      <div style="position:absolute; left:14%; bottom:13%; border:1px solid #1F1F1F; background:rgba(12,12,12,.92); border-radius:10px; padding:11px 14px; backdrop-filter:blur(6px);">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#57534C; margin-bottom:5px;">CANCELED, STILL CLOSE</div>
-        <div style="font-size:19px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;">9 to win back</div>
-      </div>
-
-      <div style="position:absolute; inset:auto 0 0 0; height:120px; background:linear-gradient(transparent,#0A0A0A);"></div>
+      <sc-for list="{{ activeCue }}" as="a" hint-placeholder-count="1">
+        <div style="display:flex; flex-direction:column; min-height:462px;">
+          <div style="height:38px; border-bottom:1px solid #1A1A1A; display:flex; align-items:center; justify-content:space-between; padding:0 20px; flex-shrink:0;">
+            <div style="font-size:10.5px; color:#8F8A82;">{{ a.tag }} · {{ a.desc }}</div>
+            <div style="display:flex; align-items:center; gap:5px; background:#141518; border:1px solid #232427; border-radius:6px; padding:4px 8px; font-size:9px; color:#A8A29A;"><span style="width:5px; height:5px; border-radius:50%; background:#2FE3A8;"></span>Claude Sonnet 4.5</div>
+          </div>
+          <div style="flex:1; padding:24px 26px; display:flex; flex-direction:column; gap:16px;">
+            <div style="align-self:flex-end; max-width:80%; background:#1A1B1F; border:1px solid #232427; border-radius:10px 10px 3px 10px; padding:10px 14px; font-size:12.5px; color:#E8E7E4; line-height:1.5;">{{ a.prompt }}</div>
+            <div style="display:flex; gap:11px;">
+              <div style="{{ cueAvatarStyle }}"></div>
+              <div style="display:flex; flex-direction:column; gap:13px; min-width:0;">
+                <div style="font-size:12.5px; line-height:1.6; color:#A8A29A;">{{ a.reply }}</div>
+                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0;">
+                  <sc-for list="{{ a.chainChips }}" as="n" hint-placeholder-count="3">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <div style="background:#141518; border:1px solid #232427; border-radius:8px; padding:7px 11px; min-width:96px;">
+                        <div style="font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:.1em; color:#57534C;">{{ n.l }}</div>
+                        <div style="font-size:10.5px; color:#E8E7E4; margin-top:2px; white-space:nowrap;">{{ n.v }}</div>
+                      </div>
+                      <div style="{{ n.arrowStyle }}">→</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="font-size:12.5px; color:#2FE3A8; font-weight:600;">{{ a.stat }}</div>
+                <div style="display:flex; gap:8px;">
+                  <sc-for list="{{ a.actionsStyled }}" as="btn" hint-placeholder-count="2">
+                    <div style="{{ btn.style }}">{{ btn.t }}</div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:0 26px 20px; flex-shrink:0;">
+            <div style="background:#141518; border:1px solid #232427; border-radius:9px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between;">
+              <div style="font-size:10.5px; color:#57534C;">Ask Cue to build a workflow, sequence or route…</div>
+              <div style="width:20px; height:20px; border-radius:5px; background:#2FE3A8; color:#06231A; display:flex; align-items:center; justify-content:center; font-size:10px;">↑</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
     </div>
   </div>
 
@@ -445,6 +462,45 @@ const FAQS = [
   { q: 'Is our data ours?', a: 'Yes. Everything exports whenever you want it, and the two-way sync means your CRM stays the system of record.' }
 ];
 
+const CUE_TABS = [
+  {
+    id: 0, label: 'Win-back', tag: 'Workflow', dot: '#2FE3A8', desc: 'Canceled → 90 days → task',
+    prompt: 'When a customer’s status changes to Canceled, wait 90 days, then create a follow-up task for their rep.',
+    reply: 'Built it — live the moment you turn it on.',
+    chain: [
+      { l: 'TRIGGER', v: 'Status → Canceled' },
+      { l: 'WAIT', v: '90 days' },
+      { l: 'THEN', v: 'Create task: win-back call' }
+    ],
+    stat: '42 accounts already qualify — it can fire on them today.',
+    actions: [{ t: 'View workflow', primary: false }, { t: 'Turn on', primary: true }]
+  },
+  {
+    id: 1, label: 'Outbound', tag: 'Sequence', dot: '#5B8FD9', desc: 'Lead enriched → campaign',
+    prompt: 'New leads that finished enrichment this week — start our standard outbound sequence.',
+    reply: 'Found 312 enriched leads with nothing queued. Here’s the play:',
+    chain: [
+      { l: 'TRIGGER', v: 'Lead enriched' },
+      { l: 'SEQUENCE', v: '3 emails + call task' },
+      { l: 'SEND', v: 'Mon 8:00 AM' }
+    ],
+    stat: '312 leads queued — first email sends Monday.',
+    actions: [{ t: 'Preview sequence', primary: false }, { t: 'Launch', primary: true }]
+  },
+  {
+    id: 2, label: 'Route', tag: 'Map agent', dot: '#E5A63D', desc: 'Leads + cancels, near me',
+    prompt: 'Show me new leads and canceled accounts near Oakland, and build today’s route.',
+    reply: '18 new leads and 7 canceled accounts sit within 20 minutes.',
+    chain: [
+      { l: 'FOUND', v: '18 leads · 7 canceled' },
+      { l: 'ORDER', v: 'Nearest → farthest' },
+      { l: 'ROUTE', v: '9 stops' }
+    ],
+    stat: 'Route built — back by 4:30 PM.',
+    actions: [{ t: 'Show on map', primary: false }, { t: 'Start route', primary: true }]
+  }
+];
+
 const DOTS = [
   [402,138,0],[356,178,0],[318,142,1],[430,196,0],[372,232,0],[300,214,0],
   [268,168,1],[336,266,0],[416,278,0],[452,110,0],[254,240,0],[210,190,0],
@@ -454,7 +510,7 @@ const DOTS = [
 ];
 
 class Component extends DCLogic {
-  state = { open: 0 };
+  state = { open: 0, cueTab: 0 };
 
   constructor(...args) {
     super(...args);
@@ -464,12 +520,65 @@ class Component extends DCLogic {
       const i = Number(row.dataset.faq);
       this.setState(s => ({ open: s.open === i ? -1 : i }));
     };
+    this._onCueTabClick = (e) => {
+      const row = e.target.closest('[data-cue-tab]');
+      if (!row) return;
+      const i = Number(row.dataset.cueTab);
+      this.setState({ cueTab: i });
+    };
   }
 
   renderVals() {
     const accent = this.props.brandColor ?? '#2FE3A8';
+    const cueTab = this.state.cueTab;
     return {
       accent,
+      onCueTabClick: this._onCueTabClick,
+      cueIconStyle: {
+        width: '22px', height: '22px', borderRadius: '6px',
+        background: 'rgba(47,227,168,.14)', display: 'flex', alignItems: 'center',
+        justifyContent: 'center', color: accent, fontSize: '12px', flexShrink: 0
+      },
+      cueAvatarStyle: { width: '22px', height: '22px', borderRadius: '6px', background: accent, flexShrink: 0 },
+      cueTabs: CUE_TABS.map(c => {
+        const selected = c.id === cueTab;
+        return {
+          i: c.id,
+          label: c.label,
+          tag: c.tag,
+          desc: c.desc,
+          rowStyle: {
+            display: 'flex', alignItems: 'flex-start', gap: '9px',
+            padding: '10px 10px', borderRadius: '9px', cursor: 'pointer',
+            background: selected ? 'rgba(47,227,168,.10)' : 'transparent',
+            border: '1px solid ' + (selected ? '#1D4536' : 'transparent')
+          },
+          dotStyle: { width: '7px', height: '7px', borderRadius: '50%', background: c.dot, marginTop: '4px', flexShrink: 0 },
+          labelStyle: { display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: selected ? '#F4F3F1' : '#C9C5BE' },
+          tagStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '.06em', color: '#6F6A64', border: '1px solid #232323', borderRadius: '4px', padding: '1px 5px', textTransform: 'uppercase' },
+          descStyle: { fontSize: '10.5px', color: '#6F6A64', marginTop: '3px' }
+        };
+      }),
+      activeCue: (() => {
+        const c = CUE_TABS[cueTab];
+        return [{
+          tag: c.tag,
+          desc: c.desc,
+          prompt: c.prompt,
+          reply: c.reply,
+          stat: c.stat,
+          chainChips: c.chain.map((n, idx) => ({
+            l: n.l, v: n.v,
+            arrowStyle: { color: '#3D3A35', fontSize: '11px', display: idx === c.chain.length - 1 ? 'none' : 'block' }
+          })),
+          actionsStyled: c.actions.map(btn => ({
+            t: btn.t,
+            style: btn.primary
+              ? { background: accent, color: '#06231A', borderRadius: '6px', padding: '7px 12px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }
+              : { border: '1px solid #232427', color: '#A8A29A', borderRadius: '6px', padding: '7px 12px', fontSize: '11px', cursor: 'pointer' }
+          }))
+        }];
+      })(),
       dots: DOTS.map(([x, y, hot]) => ({
         x, y,
         r: hot ? 4.5 : 3,
