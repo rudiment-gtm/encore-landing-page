@@ -31,13 +31,11 @@
     .r-tiers { grid-template-columns:1fr !important; grid-template-rows:auto !important; row-gap:14px !important; }
     .r-card { display:flex !important; flex-direction:column !important; grid-template-rows:auto !important; grid-row:auto !important; }
     .r-nav { display:none !important; }
-    .r-cue { grid-template-columns:1fr !important; }
-    .r-cue > div:first-child { flex-direction:row !important; overflow-x:auto !important; border-right:none !important; border-bottom:1px solid #1A1A1A !important; }
-    .r-cue > div:first-child > div:first-child { display:none !important; }
-    .r-cue [data-cue-tab] { flex-shrink:0 !important; }
+    .r-cue { padding:18px 16px 20px !important; }
   }
   @media (max-width: 640px) {
     .r-sec { padding-left:22px !important; padding-right:22px !important; }
+    .r-cue-map { height:158px !important; }
   }
 </style>
 </helmet>
@@ -87,66 +85,74 @@
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6F6A64; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
   </div>
 
-  <!-- GRAPHIC: Cue, the agent that builds it for you -->
+  <!-- GRAPHIC: Cue, running live -->
   <div style="max-width:1180px; margin:56px auto 0; padding:0 32px;">
-    <div class="r-cue" style="border:1px solid #1F1F1F; border-radius:16px; background:#0C0C0C; overflow:hidden; display:grid; grid-template-columns:252px 1fr; min-height:462px;">
+    <div class="r-cue" style="border:1px solid #1F1F1F; border-radius:16px; background:#0C0C0C; overflow:hidden; padding:22px 24px 26px;">
 
-      <div onClick="{{ onCueTabClick }}" style="border-right:1px solid #1A1A1A; background:#0B0B0D; padding:20px 14px; display:flex; flex-direction:column; gap:5px;">
-        <div style="display:flex; align-items:center; gap:9px; padding:2px 6px 16px;">
-          <div style="{{ cueIconStyle }}">✦</div>
-          <div>
-            <div style="font-size:13px; font-weight:600; color:#F4F3F1;">Cue</div>
-            <div style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:#57534C; text-transform:uppercase;">AI Agent</div>
-          </div>
-        </div>
+      <div onClick="{{ onCueTabClick }}" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <div style="{{ cueIconStyle }}">✦</div>
+        <div style="font-size:12.5px; font-weight:600; color:#F4F3F1; margin-right:2px;">Cue</div>
         <sc-for list="{{ cueTabs }}" as="c" hint-placeholder-count="3">
-          <div data-cue-tab="{{ c.i }}" style="{{ c.rowStyle }}">
-            <span style="{{ c.dotStyle }}"></span>
-            <div style="min-width:0; flex:1;">
-              <div style="{{ c.labelStyle }}">{{ c.label }}<span style="{{ c.tagStyle }}">{{ c.tag }}</span></div>
-              <div style="{{ c.descStyle }}">{{ c.desc }}</div>
-            </div>
+          <div data-cue-tab="{{ c.i }}" style="{{ c.pillStyle }}">
+            <span style="{{ c.pillDotStyle }}"></span>{{ c.label }}
           </div>
         </sc-for>
+        <div style="flex:1"></div>
+        <div style="display:flex; align-items:center; gap:5px; background:#141518; border:1px solid #232427; border-radius:6px; padding:4px 9px; font-size:9px; color:#A8A29A;"><span style="width:5px; height:5px; border-radius:50%; background:#2FE3A8;"></span>Claude Sonnet 4.5</div>
       </div>
 
       <sc-for list="{{ activeCue }}" as="a" hint-placeholder-count="1">
-        <div style="display:flex; flex-direction:column; min-height:462px;">
-          <div style="height:38px; border-bottom:1px solid #1A1A1A; display:flex; align-items:center; justify-content:space-between; padding:0 20px; flex-shrink:0;">
-            <div style="font-size:10.5px; color:#8F8A82;">{{ a.tag }} · {{ a.desc }}</div>
-            <div style="display:flex; align-items:center; gap:5px; background:#141518; border:1px solid #232427; border-radius:6px; padding:4px 8px; font-size:9px; color:#A8A29A;"><span style="width:5px; height:5px; border-radius:50%; background:#2FE3A8;"></span>Claude Sonnet 4.5</div>
+        <div>
+          <div style="margin-top:18px; background:#0F0F10; border:1px solid #1F2023; border-radius:10px; padding:13px 16px; display:flex; align-items:flex-start; gap:10px;">
+            <span style="color:#57534C; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.5;">›</span>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:#E8E7E4; flex:1; line-height:1.5;">{{ a.typedPrompt }}<span style="{{ a.cursorStyle }}">▍</span></div>
           </div>
-          <div style="flex:1; padding:24px 26px; display:flex; flex-direction:column; gap:16px;">
-            <div style="align-self:flex-end; max-width:80%; background:#1A1B1F; border:1px solid #232427; border-radius:10px 10px 3px 10px; padding:10px 14px; font-size:12.5px; color:#E8E7E4; line-height:1.5;">{{ a.prompt }}</div>
-            <div style="display:flex; gap:11px;">
-              <div style="{{ cueAvatarStyle }}"></div>
-              <div style="display:flex; flex-direction:column; gap:13px; min-width:0;">
-                <div style="font-size:12.5px; line-height:1.6; color:#A8A29A;">{{ a.reply }}</div>
-                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0;">
-                  <sc-for list="{{ a.chainChips }}" as="n" hint-placeholder-count="3">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                      <div style="background:#141518; border:1px solid #232427; border-radius:8px; padding:7px 11px; min-width:96px;">
-                        <div style="font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:.1em; color:#57534C;">{{ n.l }}</div>
-                        <div style="font-size:10.5px; color:#E8E7E4; margin-top:2px; white-space:nowrap;">{{ n.v }}</div>
-                      </div>
-                      <div style="{{ n.arrowStyle }}">→</div>
-                    </div>
-                  </sc-for>
+
+          <div style="{{ a.statusRowStyle }}"><span style="{{ a.statusDotStyle }}"></span>{{ a.statusLabel }}</div>
+
+          <div style="{{ a.replyStyle }}">{{ a.reply }}</div>
+
+          <sc-if value="{{ a.isFlow }}">
+            <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0; margin-top:14px;">
+              <sc-for list="{{ a.chainChips }}" as="n" hint-placeholder-count="3">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div style="{{ n.chipStyle }}">
+                    <div style="font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:.1em; color:#57534C;">{{ n.l }}</div>
+                    <div style="font-size:10.5px; color:#E8E7E4; margin-top:2px; white-space:nowrap;">{{ n.v }}</div>
+                  </div>
+                  <div style="{{ n.arrowStyle }}">→</div>
                 </div>
-                <div style="font-size:12.5px; color:#2FE3A8; font-weight:600;">{{ a.stat }}</div>
-                <div style="display:flex; gap:8px;">
-                  <sc-for list="{{ a.actionsStyled }}" as="btn" hint-placeholder-count="2">
-                    <div style="{{ btn.style }}">{{ btn.t }}</div>
-                  </sc-for>
-                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ a.isMap }}">
+            <div class="r-cue-map" style="position:relative; margin-top:14px; height:190px; border:1px solid #1F1F1F; border-radius:10px; overflow:hidden; background:#0A0C0D;">
+              <div style="{{ a.mapGridStyle }}"></div>
+              <sc-for list="{{ a.regionPins }}" as="p" hint-placeholder-count="14">
+                <div style="{{ p.style }}"></div>
+              </sc-for>
+              <sc-for list="{{ a.clusterPins }}" as="p" hint-placeholder-count="5">
+                <div style="{{ p.style }}"></div>
+              </sc-for>
+              <div style="{{ a.ringStyle }}"></div>
+              <div style="{{ a.cityLabelStyle }}">{{ a.city }}</div>
+              <div style="{{ a.calloutAStyle }}">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.1em; color:#E5484D;">{{ a.calloutAL }}</div>
+                <div style="font-size:13px; font-weight:700; color:#F4F3F1;">{{ a.calloutAV }}</div>
+              </div>
+              <div style="{{ a.calloutBStyle }}">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.1em; color:#57534C;">{{ a.calloutBL }}</div>
+                <div style="font-size:13px; font-weight:700; color:#F4F3F1;">{{ a.calloutBV }}</div>
               </div>
             </div>
-          </div>
-          <div style="padding:0 26px 20px; flex-shrink:0;">
-            <div style="background:#141518; border:1px solid #232427; border-radius:9px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between;">
-              <div style="font-size:10.5px; color:#57534C;">Ask Cue to build a workflow, sequence or route…</div>
-              <div style="width:20px; height:20px; border-radius:5px; background:#2FE3A8; color:#06231A; display:flex; align-items:center; justify-content:center; font-size:10px;">↑</div>
-            </div>
+          </sc-if>
+
+          <div style="{{ a.statLineStyle }}">{{ a.stat }}</div>
+          <div style="{{ a.actionsRowStyle }}">
+            <sc-for list="{{ a.actionsStyled }}" as="btn" hint-placeholder-count="2">
+              <div style="{{ btn.style }}">{{ btn.t }}</div>
+            </sc-for>
           </div>
         </div>
       </sc-for>
@@ -464,21 +470,21 @@ const FAQS = [
 
 const CUE_TABS = [
   {
-    id: 0, label: 'Win-back', tag: 'Workflow', dot: '#2FE3A8', desc: 'Canceled → 90 days → task',
-    prompt: 'When a customer’s status changes to Canceled, wait 90 days, then create a follow-up task for their rep.',
-    reply: 'Built it — live the moment you turn it on.',
+    id: 0, kind: 'flow', label: 'Workflow', dot: '#2FE3A8', totalSteps: 6,
+    prompt: 'When a customer’s status flips to Canceled, wait 90 days, then create a win-back task for their rep.',
+    reply: 'Live the second you turn it on.',
     chain: [
       { l: 'TRIGGER', v: 'Status → Canceled' },
       { l: 'WAIT', v: '90 days' },
       { l: 'THEN', v: 'Create task: win-back call' }
     ],
-    stat: '42 accounts already qualify — it can fire on them today.',
+    stat: '42 accounts already qualify — this can fire on them today.',
     actions: [{ t: 'View workflow', primary: false }, { t: 'Turn on', primary: true }]
   },
   {
-    id: 1, label: 'Outbound', tag: 'Sequence', dot: '#5B8FD9', desc: 'Lead enriched → campaign',
+    id: 1, kind: 'flow', label: 'Outbound', dot: '#5B8FD9', totalSteps: 6,
     prompt: 'New leads that finished enrichment this week — start our standard outbound sequence.',
-    reply: 'Found 312 enriched leads with nothing queued. Here’s the play:',
+    reply: 'Found 312 with nothing queued. Here’s the play:',
     chain: [
       { l: 'TRIGGER', v: 'Lead enriched' },
       { l: 'SEQUENCE', v: '3 emails + call task' },
@@ -488,18 +494,22 @@ const CUE_TABS = [
     actions: [{ t: 'Preview sequence', primary: false }, { t: 'Launch', primary: true }]
   },
   {
-    id: 2, label: 'Route', tag: 'Map agent', dot: '#E5A63D', desc: 'Leads + cancels, near me',
-    prompt: 'Show me new leads and canceled accounts near Oakland, and build today’s route.',
-    reply: '18 new leads and 7 canceled accounts sit within 20 minutes.',
-    chain: [
-      { l: 'FOUND', v: '18 leads · 7 canceled' },
-      { l: 'ORDER', v: 'Nearest → farthest' },
-      { l: 'ROUTE', v: '9 stops' }
-    ],
-    stat: 'Route built — back by 4:30 PM.',
-    actions: [{ t: 'Show on map', primary: false }, { t: 'Start route', primary: true }]
+    id: 2, kind: 'map', label: 'Route', dot: '#E5A63D', totalSteps: 5,
+    prompt: 'Show me canceled customers in Emeryville and pull up the area.',
+    reply: '7 canceled accounts sit inside Emeryville. Zooming in—',
+    city: 'Emeryville, CA',
+    calloutA: { l: 'CANCELED HERE', v: '7 accounts' },
+    calloutB: { l: 'NEARBY', v: '3 new leads' },
+    stat: 'Route built — 4 stops, back by 4:30 PM.',
+    actions: [{ t: 'Show all canceled', primary: false }, { t: 'Build route', primary: true }]
   }
 ];
+
+const REGION_PINS = [
+  [8,22],[14,58],[20,32],[27,72],[34,18],[40,62],[47,38],
+  [53,78],[58,24],[80,58],[86,28],[92,68],[95,42],[46,52]
+];
+const CLUSTER_PINS = [[62,36],[67,34],[64,43],[70,41],[66,47]];
 
 const DOTS = [
   [402,138,0],[356,178,0],[318,142,1],[430,196,0],[372,232,0],[300,214,0],
@@ -510,7 +520,7 @@ const DOTS = [
 ];
 
 class Component extends DCLogic {
-  state = { open: 0, cueTab: 0 };
+  state = { open: 0, cueTab: 0, phase: 'typing', typedChars: 0, revealStep: 0 };
 
   constructor(...args) {
     super(...args);
@@ -524,13 +534,63 @@ class Component extends DCLogic {
       const row = e.target.closest('[data-cue-tab]');
       if (!row) return;
       const i = Number(row.dataset.cueTab);
-      this.setState({ cueTab: i });
+      if (i === this.state.cueTab) return;
+      clearTimeout(this._cueTimer);
+      this.setState({ cueTab: i, phase: 'typing', typedChars: 0, revealStep: 0 });
+      this._cueTimer = setTimeout(() => this._cueTick(), 260);
     };
+    this._cueTick = () => {
+      const s = this.state;
+      const tab = CUE_TABS[s.cueTab];
+      if (s.phase === 'typing') {
+        if (s.typedChars < tab.prompt.length) {
+          this.setState(st => ({ typedChars: st.typedChars + 1 }));
+          this._cueTimer = setTimeout(this._cueTick, 22);
+        } else {
+          this.setState({ phase: 'thinking' });
+          this._cueTimer = setTimeout(this._cueTick, 500);
+        }
+      } else if (s.phase === 'thinking') {
+        this.setState({ phase: 'building', revealStep: 0 });
+        this._cueTimer = setTimeout(this._cueTick, 80);
+      } else if (s.phase === 'building') {
+        if (s.revealStep < tab.totalSteps) {
+          this.setState(st => ({ revealStep: st.revealStep + 1 }));
+          this._cueTimer = setTimeout(this._cueTick, 520);
+        } else {
+          this.setState({ phase: 'done' });
+          this._cueTimer = setTimeout(this._cueTick, 2600);
+        }
+      } else {
+        this.setState(st => ({
+          cueTab: (st.cueTab + 1) % CUE_TABS.length,
+          phase: 'typing', typedChars: 0, revealStep: 0
+        }));
+        this._cueTimer = setTimeout(this._cueTick, 320);
+      }
+    };
+  }
+
+  componentDidMount() {
+    this._cueTimer = setTimeout(this._cueTick, 700);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._cueTimer);
   }
 
   renderVals() {
     const accent = this.props.brandColor ?? '#2FE3A8';
     const cueTab = this.state.cueTab;
+    const step = this.state.revealStep;
+    const phase = this.state.phase;
+    const revealed = (n) => step >= n;
+    const fadeIn = (shown) => ({
+      opacity: shown ? 1 : 0,
+      transform: shown ? 'translateY(0)' : 'translateY(6px)',
+      transition: 'opacity .45s ease, transform .45s ease',
+      pointerEvents: shown ? 'auto' : 'none'
+    });
     return {
       accent,
       onCueTabClick: this._onCueTabClick,
@@ -539,45 +599,128 @@ class Component extends DCLogic {
         background: 'rgba(47,227,168,.14)', display: 'flex', alignItems: 'center',
         justifyContent: 'center', color: accent, fontSize: '12px', flexShrink: 0
       },
-      cueAvatarStyle: { width: '22px', height: '22px', borderRadius: '6px', background: accent, flexShrink: 0 },
       cueTabs: CUE_TABS.map(c => {
         const selected = c.id === cueTab;
         return {
           i: c.id,
           label: c.label,
-          tag: c.tag,
-          desc: c.desc,
-          rowStyle: {
-            display: 'flex', alignItems: 'flex-start', gap: '9px',
-            padding: '10px 10px', borderRadius: '9px', cursor: 'pointer',
+          pillStyle: {
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            padding: '6px 12px', borderRadius: '999px', cursor: 'pointer',
+            fontSize: '11.5px', fontWeight: selected ? 600 : 500,
+            color: selected ? '#F4F3F1' : '#8F8A82',
             background: selected ? 'rgba(47,227,168,.10)' : 'transparent',
-            border: '1px solid ' + (selected ? '#1D4536' : 'transparent')
+            border: '1px solid ' + (selected ? '#1D4536' : '#232323'),
+            transition: 'background .25s ease, border-color .25s ease, color .25s ease'
           },
-          dotStyle: { width: '7px', height: '7px', borderRadius: '50%', background: c.dot, marginTop: '4px', flexShrink: 0 },
-          labelStyle: { display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: selected ? '#F4F3F1' : '#C9C5BE' },
-          tagStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '.06em', color: '#6F6A64', border: '1px solid #232323', borderRadius: '4px', padding: '1px 5px', textTransform: 'uppercase' },
-          descStyle: { fontSize: '10.5px', color: '#6F6A64', marginTop: '3px' }
+          pillDotStyle: { display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: c.dot, marginRight: '2px' }
         };
       }),
       activeCue: (() => {
-        const c = CUE_TABS[cueTab];
-        return [{
-          tag: c.tag,
-          desc: c.desc,
-          prompt: c.prompt,
-          reply: c.reply,
-          stat: c.stat,
-          chainChips: c.chain.map((n, idx) => ({
-            l: n.l, v: n.v,
-            arrowStyle: { color: '#3D3A35', fontSize: '11px', display: idx === c.chain.length - 1 ? 'none' : 'block' }
-          })),
-          actionsStyled: c.actions.map(btn => ({
+        const tab = CUE_TABS[cueTab];
+        const isFlow = tab.kind === 'flow';
+        const isMap = tab.kind === 'map';
+        const buttonsStep = tab.totalSteps;
+        const statStep = tab.totalSteps - 1;
+        const running = phase !== 'typing' && !(phase === 'done' || revealed(buttonsStep));
+        const finished = phase === 'done' || revealed(buttonsStep);
+
+        const result = {
+          city: tab.city,
+          typedPrompt: tab.prompt.slice(0, this.state.typedChars),
+          cursorStyle: {
+            display: phase === 'typing' ? 'inline-block' : 'none',
+            color: accent, animation: 'blip .9s steps(2) infinite'
+          },
+          statusRowStyle: {
+            display: phase === 'typing' ? 'none' : 'flex', alignItems: 'center', gap: '7px',
+            marginTop: '12px', fontFamily: "'JetBrains Mono', monospace", fontSize: '10px',
+            letterSpacing: '.05em', color: finished ? accent : '#6F6A64', textTransform: 'uppercase'
+          },
+          statusDotStyle: {
+            width: '5px', height: '5px', borderRadius: '50%',
+            background: finished ? accent : '#6F6A64',
+            animation: running ? 'blip 1.1s ease-in-out infinite' : 'none'
+          },
+          statusLabel: running ? 'Cue is building this…' : (finished ? 'Running live.' : ''),
+          reply: tab.reply,
+          replyStyle: { fontSize: '12.5px', lineHeight: 1.6, color: '#A8A29A', marginTop: '14px', ...fadeIn(revealed(1)) },
+          isFlow, isMap,
+          statLineStyle: { fontSize: '12.5px', color: accent, fontWeight: 600, marginTop: '14px', ...fadeIn(revealed(statStep)) },
+          stat: tab.stat,
+          actionsRowStyle: { display: 'flex', gap: '8px', marginTop: '14px', ...fadeIn(revealed(buttonsStep)) },
+          actionsStyled: tab.actions.map(btn => ({
             t: btn.t,
             style: btn.primary
-              ? { background: accent, color: '#06231A', borderRadius: '6px', padding: '7px 12px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }
-              : { border: '1px solid #232427', color: '#A8A29A', borderRadius: '6px', padding: '7px 12px', fontSize: '11px', cursor: 'pointer' }
+              ? { background: accent, color: '#06231A', borderRadius: '6px', padding: '7px 13px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }
+              : { border: '1px solid #232427', color: '#A8A29A', borderRadius: '6px', padding: '7px 13px', fontSize: '11px', cursor: 'pointer' }
           }))
-        }];
+        };
+
+        if (isFlow) {
+          result.chainChips = tab.chain.map((n, idx) => {
+            const shown = revealed(2 + idx);
+            return {
+              l: n.l, v: n.v,
+              chipStyle: {
+                background: '#141518', border: '1px solid #232427', borderRadius: '8px',
+                padding: '7px 11px', minWidth: '96px', ...fadeIn(shown)
+              },
+              arrowStyle: {
+                color: '#3D3A35', fontSize: '11px',
+                display: idx === tab.chain.length - 1 ? 'none' : 'block',
+                opacity: revealed(2 + idx + 1) ? 1 : 0, transition: 'opacity .4s ease'
+              }
+            };
+          });
+        }
+
+        if (isMap) {
+          const baseShown = revealed(2);
+          const zoomed = revealed(3);
+          const calloutsShown = revealed(4);
+          result.mapGridStyle = {
+            position: 'absolute', inset: 0,
+            backgroundImage: 'radial-gradient(#171A1B 1px, transparent 1px)', backgroundSize: '20px 20px',
+            opacity: baseShown ? 1 : 0, transition: 'opacity .6s ease'
+          };
+          result.regionPins = REGION_PINS.map(([x, y]) => ({
+            style: {
+              position: 'absolute', left: x + '%', top: y + '%', width: '5px', height: '5px',
+              borderRadius: '50%', background: '#3D3A35',
+              opacity: baseShown ? .85 : 0, transition: 'opacity .6s ease'
+            }
+          }));
+          result.clusterPins = CLUSTER_PINS.map(([x, y]) => ({
+            style: {
+              position: 'absolute', left: x + '%', top: y + '%',
+              width: zoomed ? '7px' : '5px', height: zoomed ? '7px' : '5px',
+              borderRadius: '50%', background: zoomed ? '#E5484D' : '#3D3A35',
+              boxShadow: zoomed ? '0 0 0 4px rgba(229,72,77,.22)' : 'none',
+              opacity: baseShown ? 1 : 0,
+              transition: 'opacity .5s ease, background .5s ease, box-shadow .5s ease, width .5s ease, height .5s ease'
+            }
+          }));
+          result.ringStyle = zoomed
+            ? { position: 'absolute', left: '65%', top: '40%', width: '104px', height: '104px', transform: 'translate(-50%,-50%)', borderRadius: '50%', border: '2px solid ' + accent, boxShadow: '0 0 0 8px rgba(47,227,168,.12)', opacity: 1, transition: 'all .9s cubic-bezier(.22,1,.36,1)' }
+            : { position: 'absolute', left: '50%', top: '46%', width: '260px', height: '260px', transform: 'translate(-50%,-50%)', borderRadius: '50%', border: '1px solid rgba(47,227,168,.25)', boxShadow: 'none', opacity: baseShown ? .6 : 0, transition: 'all .9s cubic-bezier(.22,1,.36,1)' };
+          result.cityLabelStyle = {
+            position: 'absolute', left: '65%', top: 'calc(40% + 62px)', transform: 'translateX(-50%)',
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '.1em', color: accent,
+            textTransform: 'uppercase', whiteSpace: 'nowrap',
+            opacity: zoomed ? 1 : 0, transition: 'opacity .5s ease .3s'
+          };
+          result.calloutAL = tab.calloutA.l; result.calloutAV = tab.calloutA.v;
+          result.calloutBL = tab.calloutB.l; result.calloutBV = tab.calloutB.v;
+          const calloutBase = {
+            position: 'absolute', border: '1px solid #232427', background: 'rgba(12,12,12,.92)',
+            borderRadius: '8px', padding: '7px 10px', ...fadeIn(calloutsShown)
+          };
+          result.calloutAStyle = { ...calloutBase, left: '10px', top: '10px', borderColor: 'rgba(229,72,77,.35)' };
+          result.calloutBStyle = { ...calloutBase, left: '10px', bottom: '10px' };
+        }
+
+        return [result];
       })(),
       dots: DOTS.map(([x, y, hot]) => ({
         x, y,
