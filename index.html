@@ -59,9 +59,9 @@
         <img src="/encore-logo.png" alt="encore" style="height:26px; width:auto; display:block;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase; border-left:1px solid #232323; padding-left:11px;">GTM Map</div>
       </div>
-      <div class="r-nav" style="flex:1; display:flex; gap:26px; font-size:14px; color:#8A857E;">
-        <a href="#system" style="color:#8A857E;" style-hover="color:#F4F3F1">The product</a>
-        <a href="#pricing" style="color:#8A857E;" style-hover="color:#F4F3F1">Pricing</a>
+      <div class="r-nav" style="flex:1; display:flex; gap:26px; font-size:14px; color:#F4F3F1;">
+        <a href="#system" style="color:#F4F3F1;" style-hover="color:#F4F3F1">The product</a>
+        <a href="#pricing" style="color:#F4F3F1;" style-hover="color:#F4F3F1">Pricing</a>
       </div>
       <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; background:#2FE3A8; color:#06231A; border-radius:8px; padding:9px 16px; font-size:14px; font-weight:600;" style-hover="background:#7FF0C9; color:#06231A">Book a demo</a>
     </div>
@@ -69,20 +69,20 @@
 
   <!-- HERO -->
   <div class="r-sec" style="max-width:1180px; margin:0 auto; padding:96px 32px 0; display:flex; flex-direction:column; align-items:center; text-align:center; gap:26px;">
-    <div style="display:flex; align-items:center; gap:9px; border:1px solid #232323; border-radius:999px; padding:6px 14px; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.1em; color:#8A857E; text-transform:uppercase;">
+    <div style="display:flex; align-items:center; gap:9px; border:1px solid #232323; border-radius:999px; padding:6px 14px; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.1em; color:#F4F3F1; text-transform:uppercase;">
       <span style="width:6px; height:6px; border-radius:50%; background:#2FE3A8;"></span>Built for field teams
     </div>
 
     <div style="font-family:Poppins,sans-serif; font-size:clamp(34px,6.6vw,64px); font-weight:600; letter-spacing:-.045em; line-height:1.06; max-width:17ch; text-wrap:balance;">Keep. Win back. Go get.</div>
 
-    <div style="font-size:18px; line-height:1.62; color:#A8A29A; max-width:58ch; text-wrap:pretty;">Your whole service area, mapped the way you actually sell it.</div>
+    <div style="font-size:18px; line-height:1.62; color:#F4F3F1; max-width:58ch; text-wrap:pretty;">Your whole service area, mapped the way you actually sell it.</div>
 
     <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; padding-top:6px;">
       <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:#2FE3A8; color:#06231A; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:600;" style-hover="background:#7FF0C9; color:#06231A">Book a demo</a>
       <a href="#system" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#4A4A4A">Start for free</a>
     </div>
 
-    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6F6A64; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#F4F3F1; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
   </div>
 
   <!-- GRAPHIC: Cue, running live -->
@@ -97,14 +97,12 @@
             <span style="{{ c.pillDotStyle }}"></span>{{ c.label }}
           </div>
         </sc-for>
-        <div style="flex:1"></div>
-        <div style="display:flex; align-items:center; gap:5px; background:#141518; border:1px solid #232427; border-radius:6px; padding:4px 9px; font-size:9px; color:#A8A29A;"><span style="width:5px; height:5px; border-radius:50%; background:#2FE3A8;"></span>Claude Sonnet 4.5</div>
       </div>
 
       <sc-for list="{{ activeCue }}" as="a" hint-placeholder-count="1">
         <div>
           <div style="margin-top:18px; background:#0F0F10; border:1px solid #1F2023; border-radius:10px; padding:13px 16px; display:flex; align-items:flex-start; gap:10px;">
-            <span style="color:#57534C; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.5;">›</span>
+            <span style="color:#F4F3F1; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.5;">›</span>
             <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:#E8E7E4; flex:1; line-height:1.5;">{{ a.typedPrompt }}<span style="{{ a.cursorStyle }}">▍</span></div>
           </div>
 
@@ -117,7 +115,7 @@
               <sc-for list="{{ a.chainChips }}" as="n" hint-placeholder-count="3">
                 <div style="display:flex; align-items:center; gap:8px;">
                   <div style="{{ n.chipStyle }}">
-                    <div style="font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:.1em; color:#57534C;">{{ n.l }}</div>
+                    <div style="font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:.1em; color:#F4F3F1;">{{ n.l }}</div>
                     <div style="font-size:10.5px; color:#E8E7E4; margin-top:2px; white-space:nowrap;">{{ n.v }}</div>
                   </div>
                   <div style="{{ n.arrowStyle }}">→</div>
@@ -142,7 +140,7 @@
                 <div style="font-size:13px; font-weight:700; color:#F4F3F1;">{{ a.calloutAV }}</div>
               </div>
               <div style="{{ a.calloutBStyle }}">
-                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.1em; color:#57534C;">{{ a.calloutBL }}</div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.1em; color:#F4F3F1;">{{ a.calloutBL }}</div>
                 <div style="font-size:13px; font-weight:700; color:#F4F3F1;">{{ a.calloutBV }}</div>
               </div>
             </div>
@@ -166,7 +164,7 @@
     </div>
   </div>
 
-  <div style="max-width:1180px; margin:0 auto; padding:26px 32px 0; text-align:center; font-size:14.5px; color:#57534C;">Anywhere a rep covers ground — territory sales, field service, or a route.</div>
+  <div style="max-width:1180px; margin:0 auto; padding:26px 32px 0; text-align:center; font-size:14.5px; color:#F4F3F1;">Anywhere a rep covers ground — territory sales, field service, or a route.</div>
 
   <!-- THE SITUATION -->
   <div class="r-2col" style="max-width:1180px; margin:0 auto; padding:104px 32px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
@@ -175,8 +173,8 @@
       <div style="font-family:Poppins,sans-serif; font-size:38px; font-weight:600; letter-spacing:-.035em; line-height:1.15; text-wrap:balance;">A few reps, a few thousand accounts, and no one to build the list.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:22px; padding-top:6px;">
-      <div style="font-size:16.5px; line-height:1.68; color:#A8A29A; text-wrap:pretty;">Big companies hire an ops person to figure out where the revenue is. You have reps in trucks, a CRM someone set up three years ago, and a spreadsheet of cancellations nobody has opened since spring.</div>
-      <div style="font-size:16.5px; line-height:1.68; color:#A8A29A; text-wrap:pretty;">encore does that job instead — every account, every status and every prospect you haven't called, on one map wired into your CRM — and then keep it current so the next stop is obvious before the truck leaves the yard. It runs on your data, in your workflow, and changes as fast as your book does.</div>
+      <div style="font-size:16.5px; line-height:1.68; color:#F4F3F1; text-wrap:pretty;">Big companies hire an ops person to figure out where the revenue is. You have reps in trucks, a CRM someone set up three years ago, and a spreadsheet of cancellations nobody has opened since spring.</div>
+      <div style="font-size:16.5px; line-height:1.68; color:#F4F3F1; text-wrap:pretty;">encore does that job instead — every account, every status and every prospect you haven't called, on one map wired into your CRM — and then keep it current so the next stop is obvious before the truck leaves the yard. It runs on your data, in your workflow, and changes as fast as your book does.</div>
     </div>
   </div>
 
@@ -192,37 +190,37 @@
       <div class="r-feat" style="border:1px solid #1F1F1F; border-radius:18px; background:#0C0C0C; overflow:hidden; display:grid; grid-template-columns:.92fr 1.08fr; gap:44px; align-items:center; padding:52px 0 52px 52px;">
         <div style="display:flex; flex-direction:column; gap:18px;">
           <div style="font-family:Poppins,sans-serif; font-size:clamp(26px,3.4vw,34px); font-weight:600; letter-spacing:-.035em; line-height:1.22; text-wrap:balance;">Every account, <span style="background:rgba(47,227,168,.14); color:#2FE3A8; border-radius:9px; padding:1px 12px 4px; display:inline-block;">by status</span></div>
-          <div style="font-size:16px; line-height:1.68; color:#8F8A82; text-wrap:pretty; max-width:44ch;">New, current, canceled and leads on one map. Filter by service, plan or last visit, then click any pin to see the account, its history and who to call.</div>
+          <div style="font-size:16px; line-height:1.68; color:#F4F3F1; text-wrap:pretty; max-width:44ch;">New, current, canceled and leads on one map. Filter by service, plan or last visit, then click any pin to see the account, its history and who to call.</div>
         </div>
         <div class="r-shell" style="border:1px solid #1F1F1F; border-radius:12px; background:#0A0A0A; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.6); margin-right:-1px;">
           <div style="display:flex; height:372px;">
             <div style="width:150px; background:#0B0B0D; border-right:1px solid #1A1A1A; padding:14px 12px; display:flex; flex-direction:column; gap:10px;">
               <div style="display:flex; gap:3px; background:#141518; border:1px solid #232427; border-radius:8px; padding:3px;">
-                <div style="flex:1; text-align:center; padding:5px 0; border-radius:6px; font-size:9.5px; color:#9DA0A6;">Chat</div>
+                <div style="flex:1; text-align:center; padding:5px 0; border-radius:6px; font-size:9.5px; color:#F4F3F1;">Chat</div>
                 <div style="flex:1; text-align:center; padding:5px 0; border-radius:6px; background:#F4F3F1; color:#0B0B0D; font-size:9.5px; font-weight:600;">Map</div>
               </div>
               <div style="display:flex; gap:6px;">
                 <div style="flex:1; background:#141518; border:1px solid #232427; border-radius:7px; padding:7px 8px;">
                   <div style="font-size:14px; font-weight:700; color:#F4F3F1;">2,773</div>
-                  <div style="font-size:8px; color:#6F6A64;">Accounts</div>
+                  <div style="font-size:8px; color:#F4F3F1;">Accounts</div>
                 </div>
                 <div style="flex:1; background:#141518; border:1px solid #232427; border-radius:7px; padding:7px 8px;">
                   <div style="font-size:14px; font-weight:700; color:#2FE3A8;">710</div>
-                  <div style="font-size:8px; color:#6F6A64;">Showing</div>
+                  <div style="font-size:8px; color:#F4F3F1;">Showing</div>
                 </div>
               </div>
-              <div style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:#57534C;">FILTERS</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:#F4F3F1;">FILTERS</div>
               <div style="border:1px solid #1F1F1F; border-radius:8px; padding:8px; display:flex; flex-direction:column; gap:5px;">
-                <div style="background:#141518; border:1px solid #232427; border-radius:5px; padding:5px 7px; font-size:9px; color:#8F8A82;">Status</div>
-                <div style="background:#141518; border:1px solid #232427; border-radius:5px; padding:5px 7px; font-size:9px; color:#8F8A82;">is any of</div>
+                <div style="background:#141518; border:1px solid #232427; border-radius:5px; padding:5px 7px; font-size:9px; color:#F4F3F1;">Status</div>
+                <div style="background:#141518; border:1px solid #232427; border-radius:5px; padding:5px 7px; font-size:9px; color:#F4F3F1;">is any of</div>
                 <div style="background:#132A22; border:1px solid #1D4536; border-radius:5px; padding:5px 7px; font-size:9px; color:#2FE3A8;">Canceled</div>
               </div>
               <div style="flex:1"></div>
               <div style="display:flex; flex-direction:column; gap:5px;">
-                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#8F8A82;"><span style="width:6px; height:6px; border-radius:50%; background:#2FE3A8;"></span>Current<span style="flex:1"></span><span style="color:#57534C;">1,204</span></div>
-                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#8F8A82;"><span style="width:6px; height:6px; border-radius:50%; background:#5B8FD9;"></span>New<span style="flex:1"></span><span style="color:#57534C;">318</span></div>
-                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#8F8A82;"><span style="width:6px; height:6px; border-radius:50%; background:#E5484D;"></span>Canceled<span style="flex:1"></span><span style="color:#57534C;">710</span></div>
-                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#8F8A82;"><span style="width:6px; height:6px; border-radius:50%; background:#8A857E;"></span>Lead<span style="flex:1"></span><span style="color:#57534C;">541</span></div>
+                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#F4F3F1;"><span style="width:6px; height:6px; border-radius:50%; background:#2FE3A8;"></span>Current<span style="flex:1"></span><span style="color:#F4F3F1;">1,204</span></div>
+                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#F4F3F1;"><span style="width:6px; height:6px; border-radius:50%; background:#5B8FD9;"></span>New<span style="flex:1"></span><span style="color:#F4F3F1;">318</span></div>
+                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#F4F3F1;"><span style="width:6px; height:6px; border-radius:50%; background:#E5484D;"></span>Canceled<span style="flex:1"></span><span style="color:#F4F3F1;">710</span></div>
+                <div style="display:flex; align-items:center; gap:6px; font-size:9px; color:#F4F3F1;"><span style="width:6px; height:6px; border-radius:50%; background:#8A857E;"></span>Lead<span style="flex:1"></span><span style="color:#F4F3F1;">541</span></div>
               </div>
             </div>
             <div style="flex:1; position:relative; background:#0E1113;">
@@ -233,17 +231,17 @@
               <div style="position:absolute; right:12px; top:12px; bottom:12px; width:172px; background:#0B0B0D; border:1px solid #232427; border-radius:9px; padding:12px; display:flex; flex-direction:column; gap:9px;">
                 <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:8px;">
                   <div style="font-size:11.5px; font-weight:600; color:#F4F3F1; line-height:1.3;">Wasatch Ridge HOA</div>
-                  <div style="color:#57534C; font-size:11px;">✕</div>
+                  <div style="color:#F4F3F1; font-size:11px;">✕</div>
                 </div>
                 <div style="display:inline-flex; align-self:flex-start; background:rgba(229,72,77,.14); border:1px solid rgba(229,72,77,.34); color:#E5484D; border-radius:5px; padding:2px 7px; font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.08em;">CANCELED</div>
                 <div style="display:flex; flex-direction:column; gap:6px; font-family:'JetBrains Mono',monospace; font-size:9px;">
-                  <div style="display:flex; justify-content:space-between;"><span style="color:#6F6A64;">Orem, UT</span></div>
-                  <div style="display:flex; justify-content:space-between;"><span style="color:#6F6A64;">Last service</span><span style="color:#A8A29A;">Apr 12</span></div>
-                  <div style="display:flex; justify-content:space-between;"><span style="color:#6F6A64;">Annual value</span><span style="color:#A8A29A;">$4,800</span></div>
-                  <div style="display:flex; justify-content:space-between;"><span style="color:#6F6A64;">Turf</span><span style="color:#A8A29A;">6.2 ac</span></div>
+                  <div style="display:flex; justify-content:space-between;"><span style="color:#F4F3F1;">Orem, UT</span></div>
+                  <div style="display:flex; justify-content:space-between;"><span style="color:#F4F3F1;">Last service</span><span style="color:#F4F3F1;">Apr 12</span></div>
+                  <div style="display:flex; justify-content:space-between;"><span style="color:#F4F3F1;">Annual value</span><span style="color:#F4F3F1;">$4,800</span></div>
+                  <div style="display:flex; justify-content:space-between;"><span style="color:#F4F3F1;">Turf</span><span style="color:#F4F3F1;">6.2 ac</span></div>
                 </div>
                 <div style="height:1px; background:#1C1C1C;"></div>
-                <div style="font-size:9.5px; color:#A8A29A; line-height:1.4;">Dana Whitmore<br><span style="color:#57534C;">Facilities Director</span></div>
+                <div style="font-size:9.5px; color:#F4F3F1; line-height:1.4;">Dana Whitmore<br><span style="color:#F4F3F1;">Facilities Director</span></div>
                 <div style="flex:1"></div>
                 <div style="background:#2FE3A8; color:#06231A; border-radius:6px; padding:6px 0; text-align:center; font-size:9.5px; font-weight:600;">Add to route</div>
               </div>
@@ -256,36 +254,36 @@
       <div class="r-feat" style="border:1px solid #1F1F1F; border-radius:18px; background:#0C0C0C; overflow:hidden; display:grid; grid-template-columns:.92fr 1.08fr; gap:44px; align-items:center; padding:52px 0 52px 52px;">
         <div style="display:flex; flex-direction:column; gap:18px;">
           <div style="font-family:Poppins,sans-serif; font-size:clamp(26px,3.4vw,34px); font-weight:600; letter-spacing:-.035em; line-height:1.22; text-wrap:balance;">Ask it <span style="background:rgba(47,227,168,.14); color:#2FE3A8; border-radius:9px; padding:1px 12px 4px; display:inline-block;">in plain language</span></div>
-          <div style="font-size:16px; line-height:1.68; color:#8F8A82; text-wrap:pretty; max-width:44ch;">Which canceled accounts sit near Tuesday's route. Where revenue is slipping. Who has not been visited since spring. Answers come back as a list you can drop straight onto the map.</div>
+          <div style="font-size:16px; line-height:1.68; color:#F4F3F1; text-wrap:pretty; max-width:44ch;">Which canceled accounts sit near Tuesday's route. Where revenue is slipping. Who has not been visited since spring. Answers come back as a list you can drop straight onto the map.</div>
         </div>
         <div class="r-shell" style="border:1px solid #1F1F1F; border-radius:12px; background:#0A0A0A; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.6); margin-right:-1px;">
           <div style="background:#0B0B0D; height:372px; display:flex; flex-direction:column;">
             <div style="height:34px; border-bottom:1px solid #1A1A1A; display:flex; align-items:center; justify-content:space-between; padding:0 12px;">
-              <div style="font-size:10px; color:#A8A29A;">Canceled mowing in Utah County</div>
-              <div style="display:flex; align-items:center; gap:5px; background:#141518; border:1px solid #232427; border-radius:6px; padding:4px 8px; font-size:9px; color:#A8A29A;"><span style="width:5px; height:5px; border-radius:50%; background:#2FE3A8;"></span>Claude Sonnet 4.5</div>
+              <div style="font-size:10px; color:#F4F3F1;">Canceled mowing in Utah County</div>
+              <div style="display:flex; align-items:center; gap:5px; background:#141518; border:1px solid #232427; border-radius:6px; padding:4px 8px; font-size:9px; color:#F4F3F1;"><span style="width:5px; height:5px; border-radius:50%; background:#2FE3A8;"></span>AI chat</div>
             </div>
             <div style="flex:1; padding:16px 18px; display:flex; flex-direction:column; gap:14px; overflow:hidden;">
               <div style="align-self:flex-end; max-width:74%; background:#1A1B1F; border:1px solid #232427; border-radius:9px 9px 3px 9px; padding:8px 11px; font-size:10.5px; color:#E8E7E4; line-height:1.45;">Which canceled mowing accounts are within 15 minutes of my Provo route?</div>
               <div style="display:flex; gap:9px;">
                 <div style="width:19px; height:19px; border-radius:5px; background:#2FE3A8; flex-shrink:0;"></div>
                 <div style="display:flex; flex-direction:column; gap:9px; min-width:0;">
-                  <div style="font-size:10.5px; line-height:1.55; color:#A8A29A;">14 canceled mowing accounts fall inside a 15-minute drive. Nine canceled in the last 90 days.</div>
+                  <div style="font-size:10.5px; line-height:1.55; color:#F4F3F1;">14 canceled mowing accounts fall inside a 15-minute drive. Nine canceled in the last 90 days.</div>
                   <div style="border:1px solid #1F1F1F; background:#0F0F0F; border-radius:8px; overflow:hidden;">
-                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; background:#141518; border-bottom:1px solid #1F1F1F; padding:6px 10px; font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.08em; color:#57534C;"><div>ACCOUNT</div><div>CITY</div><div>VALUE</div></div>
-                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A; border-bottom:1px solid #171717;"><div>Wasatch Ridge HOA</div><div>Orem</div><div>$4,800</div></div>
-                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A; border-bottom:1px solid #171717;"><div>Cedar Hollow Apts</div><div>Provo</div><div>$3,150</div></div>
-                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A;"><div>Timp View Dental</div><div>Pleasant Grove</div><div>$1,240</div></div>
+                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; background:#141518; border-bottom:1px solid #1F1F1F; padding:6px 10px; font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.08em; color:#F4F3F1;"><div>ACCOUNT</div><div>CITY</div><div>VALUE</div></div>
+                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1; border-bottom:1px solid #171717;"><div>Wasatch Ridge HOA</div><div>Orem</div><div>$4,800</div></div>
+                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1; border-bottom:1px solid #171717;"><div>Cedar Hollow Apts</div><div>Provo</div><div>$3,150</div></div>
+                    <div style="display:grid; grid-template-columns:1.5fr .9fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1;"><div>Timp View Dental</div><div>Pleasant Grove</div><div>$1,240</div></div>
                   </div>
                   <div style="display:flex; gap:6px;">
                     <div style="background:#2FE3A8; color:#06231A; border-radius:6px; padding:5px 9px; font-size:9px; font-weight:600;">Show on map</div>
-                    <div style="border:1px solid #232427; color:#A8A29A; border-radius:6px; padding:5px 9px; font-size:9px;">Build a route</div>
+                    <div style="border:1px solid #232427; color:#F4F3F1; border-radius:6px; padding:5px 9px; font-size:9px;">Build a route</div>
                   </div>
                 </div>
               </div>
             </div>
             <div style="padding:0 18px 16px;">
               <div style="background:#141518; border:1px solid #232427; border-radius:9px; padding:9px 11px; display:flex; align-items:center; justify-content:space-between;">
-                <div style="font-size:10px; color:#57534C;">Ask about accounts, territories or routes…</div>
+                <div style="font-size:10px; color:#F4F3F1;">Ask about accounts, territories or routes…</div>
                 <div style="width:20px; height:20px; border-radius:5px; background:#2FE3A8; color:#06231A; display:flex; align-items:center; justify-content:center; font-size:10px;">↑</div>
               </div>
             </div>
@@ -297,31 +295,31 @@
       <div class="r-feat" style="border:1px solid #1F1F1F; border-radius:18px; background:#0C0C0C; overflow:hidden; display:grid; grid-template-columns:.92fr 1.08fr; gap:44px; align-items:center; padding:52px 0 52px 52px;">
         <div style="display:flex; flex-direction:column; gap:18px;">
           <div style="font-family:Poppins,sans-serif; font-size:clamp(26px,3.4vw,34px); font-weight:600; letter-spacing:-.035em; line-height:1.22; text-wrap:balance;">Find the ones <span style="background:rgba(47,227,168,.14); color:#2FE3A8; border-radius:9px; padding:1px 12px 4px; display:inline-block;">you are missing</span></div>
-          <div style="font-size:16px; line-height:1.68; color:#8F8A82; text-wrap:pretty; max-width:44ch;">Search your service area for properties that look like your best customers and are not on your list yet. Deduped against what you already serve, then dropped onto the map as leads.</div>
+          <div style="font-size:16px; line-height:1.68; color:#F4F3F1; text-wrap:pretty; max-width:44ch;">Search your service area for properties that look like your best customers and are not on your list yet. Deduped against what you already serve, then dropped onto the map as leads.</div>
         </div>
         <div class="r-shell" style="border:1px solid #1F1F1F; border-radius:12px; background:#0A0A0A; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.6); margin-right:-1px;">
           <div style="background:#0B0B0D; height:372px; display:flex; flex-direction:column;">
             <div style="height:34px; border-bottom:1px solid #1A1A1A; display:flex; align-items:center; justify-content:space-between; padding:0 12px;">
-              <div style="font-size:10px; color:#A8A29A;">Prospect</div>
+              <div style="font-size:10px; color:#F4F3F1;">Prospect</div>
               <div style="background:#2FE3A8; color:#06231A; border-radius:6px; padding:4px 9px; font-size:9px; font-weight:600;">Add 12 to map</div>
             </div>
             <div style="padding:14px 16px; display:flex; flex-direction:column; gap:11px;">
               <div style="background:#141518; border:1px solid #232427; border-radius:8px; padding:10px 12px; display:flex; flex-direction:column; gap:9px;">
-                <div style="font-size:10px; color:#8F8A82; line-height:1.45;">Commercial properties with 2+ acres of turf within 20 mi of Lehi, not already in CRM</div>
+                <div style="font-size:10px; color:#F4F3F1; line-height:1.45;">Commercial properties with 2+ acres of turf within 20 mi of Lehi, not already in CRM</div>
                 <div style="display:flex; gap:5px;">
-                  <div style="border:1px solid #232427; color:#6F6A64; border-radius:5px; padding:3px 7px; font-size:8.5px;">20 mi</div>
-                  <div style="border:1px solid #232427; color:#6F6A64; border-radius:5px; padding:3px 7px; font-size:8.5px;">HOA, Commercial</div>
-                  <div style="border:1px solid #232427; color:#6F6A64; border-radius:5px; padding:3px 7px; font-size:8.5px;">Exclude existing</div>
+                  <div style="border:1px solid #232427; color:#F4F3F1; border-radius:5px; padding:3px 7px; font-size:8.5px;">20 mi</div>
+                  <div style="border:1px solid #232427; color:#F4F3F1; border-radius:5px; padding:3px 7px; font-size:8.5px;">HOA, Commercial</div>
+                  <div style="border:1px solid #232427; color:#F4F3F1; border-radius:5px; padding:3px 7px; font-size:8.5px;">Exclude existing</div>
                 </div>
               </div>
-              <div style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:#57534C;">86 RESULTS · 12 SELECTED</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:#F4F3F1;">86 RESULTS · 12 SELECTED</div>
               <div style="border:1px solid #1F1F1F; background:#0F0F0F; border-radius:8px; overflow:hidden;">
-                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; background:#141518; border-bottom:1px solid #1F1F1F; padding:6px 10px; font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.08em; color:#57534C;"><div></div><div>PROPERTY</div><div>CITY</div><div>TURF</div></div>
-                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A; border-bottom:1px solid #171717;"><div style="color:#2FE3A8;">✓</div><div>Silver Lake Business Park</div><div>Lehi</div><div>6.2 ac</div></div>
-                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A; border-bottom:1px solid #171717;"><div style="color:#2FE3A8;">✓</div><div>Traverse Ridge HOA</div><div>Draper</div><div>4.8 ac</div></div>
-                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A; border-bottom:1px solid #171717;"><div style="color:#3D3A35;">○</div><div>Thanksgiving Point Offices</div><div>Lehi</div><div>3.9 ac</div></div>
-                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A; border-bottom:1px solid #171717;"><div style="color:#2FE3A8;">✓</div><div>Meadow Crossing Apartments</div><div>American Fork</div><div>3.1 ac</div></div>
-                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#A8A29A;"><div style="color:#3D3A35;">○</div><div>Pointe West Medical</div><div>Saratoga Springs</div><div>2.4 ac</div></div>
+                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; background:#141518; border-bottom:1px solid #1F1F1F; padding:6px 10px; font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:.08em; color:#F4F3F1;"><div></div><div>PROPERTY</div><div>CITY</div><div>TURF</div></div>
+                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1; border-bottom:1px solid #171717;"><div style="color:#2FE3A8;">✓</div><div>Silver Lake Business Park</div><div>Lehi</div><div>6.2 ac</div></div>
+                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1; border-bottom:1px solid #171717;"><div style="color:#2FE3A8;">✓</div><div>Traverse Ridge HOA</div><div>Draper</div><div>4.8 ac</div></div>
+                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1; border-bottom:1px solid #171717;"><div style="color:#3D3A35;">○</div><div>Thanksgiving Point Offices</div><div>Lehi</div><div>3.9 ac</div></div>
+                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1; border-bottom:1px solid #171717;"><div style="color:#2FE3A8;">✓</div><div>Meadow Crossing Apartments</div><div>American Fork</div><div>3.1 ac</div></div>
+                <div style="display:grid; grid-template-columns:18px 1.8fr 1fr .8fr; padding:7px 10px; font-size:9.5px; color:#F4F3F1;"><div style="color:#3D3A35;">○</div><div>Pointe West Medical</div><div>Saratoga Springs</div><div>2.4 ac</div></div>
               </div>
             </div>
           </div>
@@ -336,12 +334,12 @@
       <div style="display:flex; flex-direction:column; gap:22px;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase;">Included every month</div>
         <div style="font-family:Poppins,sans-serif; font-size:38px; font-weight:600; letter-spacing:-.035em; line-height:1.15; text-wrap:balance;">Contact data comes with the plan.</div>
-        <div style="font-size:16.5px; line-height:1.68; color:#A8A29A; text-wrap:pretty;">Pull a company profile, find the facilities director, get a verified email and a direct dial. Growth includes 5,000 enrichment credits every month — no separate data vendor to shop for, no per-seat license, no annual contract stacked on top of ours.</div>
+        <div style="font-size:16.5px; line-height:1.68; color:#F4F3F1; text-wrap:pretty;">Pull a company profile, find the facilities director, get a verified email and a direct dial. Growth includes 5,000 enrichment credits every month — no separate data vendor to shop for, no per-seat license, no annual contract stacked on top of ours.</div>
         <div style="display:flex; flex-direction:column; gap:11px; padding-top:4px;">
           <sc-for list="{{ enrichPoints }}" as="p" hint-placeholder-count="3">
             <div style="display:flex; gap:11px; align-items:flex-start;">
               <span style="color:#2FE3A8; font-size:14px; line-height:1.6;">→</span>
-              <span style="font-size:15.5px; line-height:1.6; color:#A8A29A;">{{ p }}</span>
+              <span style="font-size:15.5px; line-height:1.6; color:#F4F3F1;">{{ p }}</span>
             </div>
           </sc-for>
         </div>
@@ -349,8 +347,8 @@
 
       <div style="border:1px solid #1F1F1F; border-radius:14px; background:#0F0F0F; overflow:hidden;">
         <div style="padding:16px 18px; border-bottom:1px solid #1C1C1C; display:flex; align-items:center; justify-content:space-between;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.12em; color:#6F6A64;">CREDITS THIS MONTH</div>
-          <div style="font-size:12.5px; color:#A8A29A; font-variant-numeric:tabular-nums;">4,180 <span style="color:#57534C;">/ 5,000</span></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.12em; color:#F4F3F1;">CREDITS THIS MONTH</div>
+          <div style="font-size:12.5px; color:#F4F3F1; font-variant-numeric:tabular-nums;">4,180 <span style="color:#F4F3F1;">/ 5,000</span></div>
         </div>
         <div style="padding:18px;">
           <div style="height:5px; background:#1C1C1C; border-radius:999px; overflow:hidden; margin-bottom:20px;">
@@ -360,7 +358,7 @@
             <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 0; border-top:1px solid #171717;">
               <div style="min-width:0;">
                 <div style="font-size:13.5px; color:#F4F3F1;">{{ c.name }}</div>
-                <div style="font-size:12px; color:#6F6A64;">{{ c.title }}</div>
+                <div style="font-size:12px; color:#F4F3F1;">{{ c.title }}</div>
               </div>
               <div style="{{ c.style }}">{{ c.value }}</div>
             </div>
@@ -376,21 +374,21 @@
       <div style="display:flex; flex-direction:column; gap:16px; max-width:50ch; margin-bottom:52px;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase;">Pricing</div>
         <div style="font-family:Poppins,sans-serif; font-size:38px; font-weight:600; letter-spacing:-.035em; line-height:1.15;">Pricing that scales with usage, not headcount.</div>
-        <div style="font-size:16px; line-height:1.65; color:#8F8A82; text-wrap:pretty;">Every plan includes the map, AI chat, day routing and field activity logging. CRM sync, enrichment credits and a dedicated Slack channel come in higher up. Add the office manager, the owner, the new hire — the price does not move.</div>
+        <div style="font-size:16px; line-height:1.65; color:#F4F3F1; text-wrap:pretty;">Every plan includes the map, AI chat, day routing and field activity logging. CRM sync, enrichment credits and a dedicated Slack channel come in higher up. Add the office manager, the owner, the new hire — the price does not move.</div>
       </div>
 
       <div class="r-tiers" style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:repeat(10,auto); column-gap:14px; row-gap:0;">
         <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
           <div class="r-card" style="{{ t.cardStyle }}">
             <div style="{{ t.badgeStyle }}">{{ t.badge }}</div>
-            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6F6A64; text-transform:uppercase;">{{ t.size }}</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#F4F3F1; text-transform:uppercase;">{{ t.size }}</div>
             <div style="font-family:Poppins,sans-serif; font-size:21px; font-weight:600; letter-spacing:-.025em; margin-top:7px;">{{ t.name }}</div>
             <div style="display:flex; align-items:baseline; gap:8px; margin-top:6px;">
               <div style="{{ t.priceStyle }}">{{ t.price }}</div>
-              <div style="font-size:13.5px; color:#6F6A64;">{{ t.per }}</div>
+              <div style="font-size:13.5px; color:#F4F3F1;">{{ t.per }}</div>
             </div>
             <div style="{{ t.creditStyle }}">{{ t.credits }}</div>
-            <div style="font-size:14px; line-height:1.6; color:#8F8A82; text-wrap:pretty; margin-top:10px;">{{ t.note }}</div>
+            <div style="font-size:14px; line-height:1.6; color:#F4F3F1; text-wrap:pretty; margin-top:10px;">{{ t.note }}</div>
             <div style="height:1px; background:#1C1C1C; margin:22px 0 20px;"></div>
             <div style="display:flex; flex-direction:column; gap:11px;">
               <sc-for list="{{ t.features }}" as="ft" hint-placeholder-count="6">
@@ -406,7 +404,7 @@
       </div>
 
       <div style="margin-top:16px; border:1px solid #1F1F1F; border-radius:14px; background:#0C0C0C; padding:26px 32px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-        <div style="font-size:15px; color:#8F8A82; flex:1; min-width:280px; text-wrap:pretty;">Not sure which plan fits? Book a demo and we'll walk your account list through the product, then tell you which tier makes sense.</div>
+        <div style="font-size:15px; color:#F4F3F1; flex:1; min-width:280px; text-wrap:pretty;">Not sure which plan fits? Book a demo and we'll walk your account list through the product, then tell you which tier makes sense.</div>
         <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:#F4F3F1; color:#0A0A0A; border-radius:9px; padding:12px 22px; font-size:14.5px; font-weight:600; white-space:nowrap;" style-hover="background:#FFFFFF; color:#0A0A0A">Book a demo</a>
       </div>
     </div>
@@ -434,7 +432,7 @@
   <div style="border-top:1px solid #1C1C1C;">
     <div style="max-width:1180px; margin:0 auto; padding:120px 32px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px;">
       <div style="font-family:Poppins,sans-serif; font-size:46px; font-weight:600; letter-spacing:-.04em; line-height:1.1; max-width:18ch; text-wrap:balance;">Bring your account list. We'll show you the map.</div>
-      <div style="font-size:17px; line-height:1.6; color:#8F8A82; max-width:48ch; text-wrap:pretty;">Forty-five minutes, your real data, no slides.</div>
+      <div style="font-size:17px; line-height:1.6; color:#F4F3F1; max-width:48ch; text-wrap:pretty;">Forty-five minutes, your real data, no slides.</div>
       <div style="display:flex; gap:12px; padding-top:8px;">
         <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:#2FE3A8; color:#06231A; border-radius:9px; padding:14px 26px; font-size:15px; font-weight:600;" style-hover="background:#7FF0C9; color:#06231A">Book a demo</a>
       </div>
@@ -446,12 +444,12 @@
     <div style="max-width:1180px; margin:0 auto; padding:36px 32px; display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
       <div style="display:flex; align-items:center; gap:14px;">
         <img src="/encore-logo.png" alt="encore" style="height:21px; width:auto; display:block; opacity:.72;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:#6F6A64; letter-spacing:.06em; border-left:1px solid #232323; padding-left:14px;">GO-TO-MARKET FIELD TEAMS</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:#F4F3F1; letter-spacing:.06em; border-left:1px solid #232323; padding-left:14px;">GO-TO-MARKET FIELD TEAMS</div>
       </div>
-      <div style="flex:1; display:flex; gap:22px; font-size:13.5px; color:#57534C; flex-wrap:wrap; justify-content:flex-end;">
-        <a href="#pricing" style="color:#57534C;" style-hover="color:#A8A29A">Pricing</a>
-        <a href="/privacy.html" style="color:#57534C;" style-hover="color:#A8A29A">Privacy</a>
-        <a href="/terms.html" style="color:#57534C;" style-hover="color:#A8A29A">Terms</a>
+      <div style="flex:1; display:flex; gap:22px; font-size:13.5px; color:#F4F3F1; flex-wrap:wrap; justify-content:flex-end;">
+        <a href="#pricing" style="color:#F4F3F1;" style-hover="color:#F4F3F1">Pricing</a>
+        <a href="/privacy.html" style="color:#F4F3F1;" style-hover="color:#F4F3F1">Privacy</a>
+        <a href="/terms.html" style="color:#F4F3F1;" style-hover="color:#F4F3F1">Terms</a>
       </div>
     </div>
   </div>
@@ -470,7 +468,7 @@ const FAQS = [
 
 const CUE_TABS = [
   {
-    id: 0, kind: 'flow', label: 'Workflow', dot: '#2FE3A8', totalSteps: 6,
+    id: 0, kind: 'flow', label: 'Workflows', dot: '#2FE3A8', totalSteps: 6,
     prompt: 'When a customer’s status flips to Canceled, wait 90 days, then create a win-back task for their rep.',
     reply: 'Live the second you turn it on.',
     chain: [
@@ -482,7 +480,7 @@ const CUE_TABS = [
     actions: [{ t: 'View workflow', primary: false }, { t: 'Turn on', primary: true }]
   },
   {
-    id: 1, kind: 'flow', label: 'Outbound', dot: '#5B8FD9', totalSteps: 6,
+    id: 1, kind: 'flow', label: 'Campaigns', dot: '#5B8FD9', totalSteps: 6,
     prompt: 'New leads that finished enrichment this week — start our standard outbound sequence.',
     reply: 'Found 312 with nothing queued. Here’s the play:',
     chain: [
@@ -494,7 +492,7 @@ const CUE_TABS = [
     actions: [{ t: 'Preview sequence', primary: false }, { t: 'Launch', primary: true }]
   },
   {
-    id: 2, kind: 'map', label: 'Route', dot: '#E5A63D', totalSteps: 5,
+    id: 2, kind: 'map', label: 'Map', dot: '#E5A63D', totalSteps: 5,
     prompt: 'Show me canceled customers in Emeryville and pull up the area.',
     reply: '7 canceled accounts sit inside Emeryville. Zooming in—',
     city: 'Emeryville, CA',
@@ -608,7 +606,7 @@ class Component extends DCLogic {
             display: 'inline-flex', alignItems: 'center', gap: '6px',
             padding: '6px 12px', borderRadius: '999px', cursor: 'pointer',
             fontSize: '11.5px', fontWeight: selected ? 600 : 500,
-            color: selected ? '#F4F3F1' : '#8F8A82',
+            color: '#F4F3F1',
             background: selected ? 'rgba(47,227,168,.10)' : 'transparent',
             border: '1px solid ' + (selected ? '#1D4536' : '#232323'),
             transition: 'background .25s ease, border-color .25s ease, color .25s ease'
@@ -635,16 +633,16 @@ class Component extends DCLogic {
           statusRowStyle: {
             display: phase === 'typing' ? 'none' : 'flex', alignItems: 'center', gap: '7px',
             marginTop: '12px', fontFamily: "'JetBrains Mono', monospace", fontSize: '10px',
-            letterSpacing: '.05em', color: finished ? accent : '#6F6A64', textTransform: 'uppercase'
+            letterSpacing: '.05em', color: finished ? accent : '#F4F3F1', textTransform: 'uppercase'
           },
           statusDotStyle: {
             width: '5px', height: '5px', borderRadius: '50%',
-            background: finished ? accent : '#6F6A64',
+            background: finished ? accent : '#F4F3F1',
             animation: running ? 'blip 1.1s ease-in-out infinite' : 'none'
           },
           statusLabel: running ? 'Cue is building this…' : (finished ? 'Running live.' : ''),
           reply: tab.reply,
-          replyStyle: { fontSize: '12.5px', lineHeight: 1.6, color: '#A8A29A', marginTop: '14px', ...fadeIn(revealed(1)) },
+          replyStyle: { fontSize: '12.5px', lineHeight: 1.6, color: '#F4F3F1', marginTop: '14px', ...fadeIn(revealed(1)) },
           isFlow, isMap,
           statLineStyle: { fontSize: '12.5px', color: accent, fontWeight: 600, marginTop: '14px', ...fadeIn(revealed(statStep)) },
           stat: tab.stat,
@@ -653,7 +651,7 @@ class Component extends DCLogic {
             t: btn.t,
             style: btn.primary
               ? { background: accent, color: '#06231A', borderRadius: '6px', padding: '7px 13px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }
-              : { border: '1px solid #232427', color: '#A8A29A', borderRadius: '6px', padding: '7px 13px', fontSize: '11px', cursor: 'pointer' }
+              : { border: '1px solid #232427', color: '#F4F3F1', borderRadius: '6px', padding: '7px 13px', fontSize: '11px', cursor: 'pointer' }
           }))
         };
 
@@ -752,8 +750,8 @@ class Component extends DCLogic {
         'Unused credits do not roll over, but they also never surprise you with an overage'
       ],
       sampleContacts: [
-        { name: 'Dana Whitmore', title: 'Director of Facilities', value: 'd.whitmore@\u2026', style: { color: '#A8A29A', fontSize: '12.5px', fontVariantNumeric: 'tabular-nums' } },
-        { name: 'Marcus Field', title: 'Property Manager', value: '(801) 555\u20130187', style: { color: '#A8A29A', fontSize: '12.5px', fontVariantNumeric: 'tabular-nums' } },
+        { name: 'Dana Whitmore', title: 'Director of Facilities', value: 'd.whitmore@\u2026', style: { color: '#F4F3F1', fontSize: '12.5px', fontVariantNumeric: 'tabular-nums' } },
+        { name: 'Marcus Field', title: 'Property Manager', value: '(801) 555\u20130187', style: { color: '#F4F3F1', fontSize: '12.5px', fontVariantNumeric: 'tabular-nums' } },
         { name: 'Priya Raman', title: 'VP Operations', value: 'Reveal \u00b7 2', style: { color: accent, fontSize: '12px', fontWeight: 600, border: '1px solid #1D4536', background: '#132A22', borderRadius: '7px', padding: '5px 10px', whiteSpace: 'nowrap' } }
       ],
       tiers: [
@@ -828,7 +826,7 @@ class Component extends DCLogic {
           t: f.t,
           mark: f.ok ? '\u2713' : '\u2715',
           markStyle: { color: f.ok ? (t.featured ? accent : '#5A6660') : '#E5484D', fontSize: '13px', lineHeight: 1.6, flexShrink: 0 },
-          textStyle: { fontSize: '14px', lineHeight: 1.55, color: f.ok ? '#A8A29A' : '#6F6A64' }
+          textStyle: { fontSize: '14px', lineHeight: 1.55, color: '#F4F3F1' }
         })),
         cta: t.price === 'Get pricing' ? 'Talk to us'
           : (t.name === 'Base' || t.name === 'Standard') ? 'Start for free'
@@ -853,7 +851,7 @@ class Component extends DCLogic {
           display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start',
           border: '1px solid ' + (t.featured ? '#1D4536' : '#232323'),
           background: t.featured ? '#132A22' : '#1C1C1C',
-          color: t.featured ? accent : '#A8A29A',
+          color: t.featured ? accent : '#F4F3F1',
           borderRadius: '7px', padding: '5px 10px', marginTop: '10px',
           fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '.06em', whiteSpace: 'nowrap'
         }
@@ -864,9 +862,9 @@ class Component extends DCLogic {
         return {
           q: f.q, a: f.a, i,
           rowStyle: { borderTop: '1px solid #1C1C1C', padding: '22px 0', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: open ? '12px' : '0' },
-          iconStyle: { color: open ? accent : '#57534C', fontSize: '18px', lineHeight: 1, flexShrink: 0, transform: open ? 'rotate(45deg)' : 'none', transition: 'transform .2s ease' },
+          iconStyle: { color: open ? accent : '#F4F3F1', fontSize: '18px', lineHeight: 1, flexShrink: 0, transform: open ? 'rotate(45deg)' : 'none', transition: 'transform .2s ease' },
           answerStyle: {
-            fontSize: '15.5px', lineHeight: 1.68, color: '#8F8A82', maxWidth: '62ch', textWrap: 'pretty',
+            fontSize: '15.5px', lineHeight: 1.68, color: '#F4F3F1', maxWidth: '62ch', textWrap: 'pretty',
             maxHeight: open ? '260px' : '0', opacity: open ? 1 : 0, overflow: 'hidden', transition: 'max-height .28s ease, opacity .2s ease'
           }
         };
