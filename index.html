@@ -398,7 +398,8 @@
                 </div>
               </sc-for>
             </div>
-            <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
+            <a href="{{ t.ctaHref }}" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
+            <a href="{{ t.buyNowHref }}" target="_blank" rel="noopener" style="{{ t.buyNowStyle }}">Or Buy Now</a>
           </div>
         </sc-for>
       </div>
@@ -760,14 +761,17 @@ class Component extends DCLogic {
           credits: 'No enrichment credits',
           note: 'For the solopreneur running the whole book alone. No more working out of spreadsheets.',
           featured: false,
+          ctaHref: 'https://encore-solution.vercel.app/get-started',
+          buyNowHref: 'https://buy.stripe.com/bJebJ1dls5Hc2Ja61l4Rq00',
           features: [
+            { t: 'Map Intelligence', ok: true },
             { t: 'Upload your accounts by CSV', ok: true },
-            { t: 'AI chat \u2014 ask questions about your book in plain language', ok: true },
+            { t: 'AI Agent', ok: true },
             { t: 'Route your day and log field activity', ok: true },
+            { t: 'Workflows', ok: true },
             { t: 'Two-way CRM sync', ok: false },
-            { t: 'Enrichment credits', ok: false },
-            { t: 'Dedicated Slack channel', ok: false },
-            { t: 'API access and custom endpoints', ok: false }
+            { t: 'Data enrichment', ok: false },
+            { t: 'Dedicated Slack channel', ok: false }
           ]
         },
         {
@@ -775,13 +779,16 @@ class Component extends DCLogic {
           credits: 'No enrichment credits',
           note: 'Everything in Base, wired live into the CRM you already run.',
           featured: false,
+          ctaHref: 'https://encore-solution.vercel.app/get-started',
+          buyNowHref: 'https://buy.stripe.com/7sYaEX1CK0mSerS3Td4Rq01',
           features: [
             { t: 'Two-way CRM sync \u2014 changes on the map write back in real time', ok: true },
-            { t: 'AI chat \u2014 ask questions about your book in plain language', ok: true },
+            { t: 'AI Agent', ok: true },
             { t: 'Route your day and log field activity', ok: true },
-            { t: 'Enrichment credits', ok: false },
-            { t: 'Dedicated Slack channel', ok: false },
-            { t: 'API access and custom endpoints', ok: false }
+            { t: 'Workflows', ok: true },
+            { t: 'Sequences', ok: true },
+            { t: 'Data enrichment', ok: false },
+            { t: 'Dedicated Slack channel', ok: false }
           ]
         },
         {
@@ -789,12 +796,15 @@ class Component extends DCLogic {
           credits: '5,000 credits / mo',
           note: 'The whole product. Contacts found and verified, and a channel straight to us.',
           featured: true,
+          ctaHref: 'https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d',
           features: [
             { t: 'Two-way CRM sync \u2014 changes on the map write back in real time', ok: true },
-            { t: '5,000 enrichment credits every month', ok: true },
-            { t: 'Dedicated Slack channel with the team that built it', ok: true },
-            { t: 'API access and custom endpoints', ok: true },
-            { t: 'AI chat, routing, and field activity logging', ok: true }
+            { t: 'AI Agent', ok: true },
+            { t: 'Route your day and log field activity', ok: true },
+            { t: 'Workflows', ok: true },
+            { t: 'Sequences', ok: true },
+            { t: 'Data enrichment credits', ok: true },
+            { t: 'Dedicated Slack channel', ok: true }
           ]
         },
         {
@@ -802,16 +812,20 @@ class Component extends DCLogic {
           credits: 'Credits to scope',
           note: 'Larger teams, several branches, or integrations beyond your CRM.',
           featured: false,
+          ctaHref: 'https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d',
           features: [
             { t: 'Everything in Growth, sized to your organization', ok: true },
             { t: 'Enrichment credit pool scoped to your volume', ok: true },
             { t: 'Priority support with a named account lead', ok: true },
             { t: 'API access and custom endpoints', ok: true },
-            { t: 'Custom integrations beyond your CRM', ok: true }
+            { t: 'Custom integrations beyond your CRM', ok: true },
+            { t: 'Fully done-for-you data as a service', ok: true },
+            { t: 'Fully done-for-you outbound as a service', ok: true }
           ]
         }
       ].map(t => ({
         ...t,
+        buyNowHref: t.buyNowHref || '',
         cardStyle: {
           border: '1px solid ' + (t.featured ? '#1D4536' : '#1F1F1F'),
           borderRadius: '14px',
@@ -834,6 +848,9 @@ class Component extends DCLogic {
         ctaStyle: t.featured
           ? { marginTop: '24px', background: accent, color: '#06231A', borderRadius: '9px', padding: '11px 0', textAlign: 'center', fontSize: '14px', fontWeight: 600, cursor: 'pointer', textDecoration: 'none', display: 'block' }
           : { marginTop: '24px', border: '1px solid #2B2B2B', color: '#F4F3F1', borderRadius: '9px', padding: '11px 0', textAlign: 'center', fontSize: '14px', fontWeight: 500, cursor: 'pointer', textDecoration: 'none', display: 'block' },
+        buyNowStyle: t.buyNowHref
+          ? { marginTop: '12px', color: '#8F8A82', borderRadius: '9px', textAlign: 'center', fontSize: '13px', fontWeight: 500, cursor: 'pointer', textDecoration: 'underline', display: 'block' }
+          : { display: 'none' },
         badgeStyle: t.badge
           ? { position: 'absolute', top: '-1px', right: '28px', background: accent, color: '#06231A', fontFamily: "'JetBrains Mono', monospace", fontSize: '10.5px', letterSpacing: '.1em', padding: '5px 11px', borderRadius: '0 0 6px 6px', textTransform: 'uppercase' }
           : { display: 'none' },
