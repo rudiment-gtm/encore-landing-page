@@ -377,7 +377,10 @@
                 </div>
               </sc-for>
             </div>
-            <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
+            <a href="{{ t.ctaHref }}" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
+            <sc-if value="{{ t.buyNowHref }}">
+              <a href="{{ t.buyNowHref }}" target="_blank" rel="noopener" style="{{ t.buyNowStyle }}">Or Buy Now</a>
+            </sc-if>
           </div>
         </sc-for>
       </div>
@@ -445,6 +448,11 @@ const FAQS = [
   { q: 'Is our data ours?', a: 'Yes. Everything exports whenever you want it, and the two-way sync means your CRM stays the system of record.' }
 ];
 
+const HUBSPOT_URL = 'https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d';
+const GET_STARTED_URL = 'https://encore-solution.vercel.app/get-started';
+// TODO: fill in the Stripe Payment Link for each self-serve tier once provided.
+const STRIPE_LINKS = { Base: '', Standard: '' };
+
 const DOTS = [
   [402,138,0],[356,178,0],[318,142,1],[430,196,0],[372,232,0],[300,214,0],
   [268,168,1],[336,266,0],[416,278,0],[452,110,0],[254,240,0],[210,190,0],
@@ -511,13 +519,14 @@ class Component extends DCLogic {
           note: 'For the solopreneur running the whole book alone. No more working out of spreadsheets.',
           featured: false,
           features: [
+            { t: 'Map', ok: true },
             { t: 'Upload your accounts by CSV', ok: true },
-            { t: 'AI chat \u2014 ask questions about your book in plain language', ok: true },
+            { t: 'AI Agent', ok: true },
             { t: 'Route your day and log field activity', ok: true },
+            { t: 'Workflows', ok: true },
             { t: 'Two-way CRM sync', ok: false },
-            { t: 'Enrichment credits', ok: false },
-            { t: 'Dedicated Slack channel', ok: false },
-            { t: 'API access and custom endpoints', ok: false }
+            { t: 'Data enrichment', ok: false },
+            { t: 'Dedicated Slack channel', ok: false }
           ]
         },
         {
@@ -526,12 +535,13 @@ class Component extends DCLogic {
           note: 'Everything in Base, wired live into the CRM you already run.',
           featured: false,
           features: [
-            { t: 'Two-way CRM sync \u2014 changes on the map write back in real time', ok: true },
-            { t: 'AI chat \u2014 ask questions about your book in plain language', ok: true },
+            { t: 'Two-way CRM sync', ok: true },
+            { t: 'AI Agent', ok: true },
             { t: 'Route your day and log field activity', ok: true },
-            { t: 'Enrichment credits', ok: false },
-            { t: 'Dedicated Slack channel', ok: false },
-            { t: 'API access and custom endpoints', ok: false }
+            { t: 'Workflows', ok: true },
+            { t: 'Sequences', ok: true },
+            { t: 'Data enrichment', ok: false },
+            { t: 'Dedicated Slack channel', ok: false }
           ]
         },
         {
@@ -540,11 +550,13 @@ class Component extends DCLogic {
           note: 'The whole product. Contacts found and verified, and a channel straight to us.',
           featured: true,
           features: [
-            { t: 'Two-way CRM sync \u2014 changes on the map write back in real time', ok: true },
-            { t: '5,000 enrichment credits every month', ok: true },
-            { t: 'Dedicated Slack channel with the team that built it', ok: true },
-            { t: 'API access and custom endpoints', ok: true },
-            { t: 'AI chat, routing, and field activity logging', ok: true }
+            { t: 'Two-way CRM sync', ok: true },
+            { t: 'AI Agent', ok: true },
+            { t: 'Route your day and log field activity', ok: true },
+            { t: 'Workflows', ok: true },
+            { t: 'Sequences', ok: true },
+            { t: 'Data enrichment credits', ok: true },
+            { t: 'Dedicated Slack channel', ok: true }
           ]
         },
         {
@@ -557,7 +569,9 @@ class Component extends DCLogic {
             { t: 'Enrichment credit pool scoped to your volume', ok: true },
             { t: 'Priority support with a named account lead', ok: true },
             { t: 'API access and custom endpoints', ok: true },
-            { t: 'Custom integrations beyond your CRM', ok: true }
+            { t: 'Custom integrations beyond your CRM', ok: true },
+            { t: 'Fully done-for-you data as a service', ok: true },
+            { t: 'Fully done-for-you outbound as a service', ok: true }
           ]
         }
       ].map(t => ({
@@ -581,6 +595,11 @@ class Component extends DCLogic {
         cta: t.price === 'Get pricing' ? 'Talk to us'
           : (t.name === 'Base' || t.name === 'Standard') ? 'Start for free'
           : 'Book a demo',
+        ctaHref: t.price === 'Get pricing' ? HUBSPOT_URL
+          : (t.name === 'Base' || t.name === 'Standard') ? GET_STARTED_URL
+          : HUBSPOT_URL,
+        buyNowHref: (t.name === 'Base' || t.name === 'Standard') ? STRIPE_LINKS[t.name] : '',
+        buyNowStyle: { marginTop: '10px', textAlign: 'center', fontSize: '13px', color: '#8F8A82', textDecoration: 'underline', display: 'block' },
         ctaStyle: t.featured
           ? { marginTop: '24px', background: accent, color: '#06231A', borderRadius: '9px', padding: '11px 0', textAlign: 'center', fontSize: '14px', fontWeight: 600, cursor: 'pointer', textDecoration: 'none', display: 'block' }
           : { marginTop: '24px', border: '1px solid #2B2B2B', color: '#F4F3F1', borderRadius: '9px', padding: '11px 0', textAlign: 'center', fontSize: '14px', fontWeight: 500, cursor: 'pointer', textDecoration: 'none', display: 'block' },
