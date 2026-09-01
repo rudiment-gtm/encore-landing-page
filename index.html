@@ -77,7 +77,7 @@
 
     <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; padding-top:6px;">
       <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:#2FE3A8; color:#06231A; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:600;" style-hover="background:#7FF0C9; color:#06231A">Book a demo</a>
-      <a href="#system" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#4A4A4A">Start for free</a>
+      <a href="https://encore-solution.vercel.app/get-started" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#4A4A4A">Start for free</a>
     </div>
 
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6F6A64; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
@@ -377,7 +377,7 @@
                 </div>
               </sc-for>
             </div>
-            <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
+            <a href="{{ t.ctaHref }}" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
           </div>
         </sc-for>
       </div>
@@ -581,6 +581,12 @@ class Component extends DCLogic {
         cta: t.price === 'Get pricing' ? 'Talk to us'
           : (t.name === 'Base' || t.name === 'Standard') ? 'Start for free'
           : 'Book a demo',
+        // Base/Standard are self-serve — send them straight to the app's
+        // signup page. Growth/Custom stay sales-assisted via the existing
+        // HubSpot meeting scheduler.
+        ctaHref: (t.name === 'Base' || t.name === 'Standard')
+          ? 'https://encore-solution.vercel.app/get-started'
+          : 'https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d',
         ctaStyle: t.featured
           ? { marginTop: '24px', background: accent, color: '#06231A', borderRadius: '9px', padding: '11px 0', textAlign: 'center', fontSize: '14px', fontWeight: 600, cursor: 'pointer', textDecoration: 'none', display: 'block' }
           : { marginTop: '24px', border: '1px solid #2B2B2B', color: '#F4F3F1', borderRadius: '9px', padding: '11px 0', textAlign: 'center', fontSize: '14px', fontWeight: 500, cursor: 'pointer', textDecoration: 'none', display: 'block' },
