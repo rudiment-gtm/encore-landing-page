@@ -20,9 +20,7 @@
   body { font-family:Manrope, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
   a { color:#2FE3A8; text-decoration:none; }
   a:hover { color:#7FF0C9; }
-  @keyframes ring { 0% { r:34; opacity:.55 } 100% { r:250; opacity:0 } }
   @keyframes blip { 0%,100% { opacity:.35 } 50% { opacity:1 } }
-  @keyframes dash { to { stroke-dashoffset:-28 } }
   @media (max-width: 900px) {
     .r-2col, .r-feat { grid-template-columns:1fr !important; gap:34px !important; }
     .r-2col { padding:64px 22px !important; }
@@ -83,56 +81,58 @@
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6F6A64; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
   </div>
 
-  <!-- GRAPHIC: radius bloom -->
+  <!-- GRAPHIC: workflow preview -->
   <div style="max-width:1180px; margin:56px auto 0; padding:0 32px;">
-    <div style="position:relative; border:1px solid #1F1F1F; border-radius:16px; background:#0C0C0C; overflow:hidden; height:440px;">
-      <div style="position:absolute; inset:0; background-image:radial-gradient(#191919 1px, transparent 1px); background-size:26px 26px;"></div>
-      <div style="position:absolute; inset:0; background:radial-gradient(ellipse 46% 62% at 50% 50%, rgba(47,227,168,.10), transparent 72%);"></div>
+    <div style="border:1px solid #1F1F1F; border-radius:16px; background:#0C0C0C; padding:28px 32px 32px;">
 
-      <svg viewBox="0 0 1000 440" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;">
-        <defs>
-          <radialGradient id="core" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#2FE3A8" stop-opacity=".55"></stop>
-            <stop offset="100%" stop-color="#2FE3A8" stop-opacity="0"></stop>
-          </radialGradient>
-        </defs>
-
-        <circle cx="500" cy="220" r="90" fill="none" stroke="#1F3A31" stroke-width="1"></circle>
-        <circle cx="500" cy="220" r="150" fill="none" stroke="#1B2E28" stroke-width="1"></circle>
-        <circle cx="500" cy="220" r="212" fill="none" stroke="#182420" stroke-width="1" stroke-dasharray="3 7"></circle>
-        <circle cx="500" cy="220" r="34" fill="url(#core)"></circle>
-        <circle cx="500" cy="220" r="90" fill="none" stroke="#2FE3A8" stroke-width="1" opacity=".5" style="animation:ring 5.5s ease-out infinite;"></circle>
-        <circle cx="500" cy="220" r="90" fill="none" stroke="#2FE3A8" stroke-width="1" opacity=".5" style="animation:ring 5.5s ease-out 2.75s infinite;"></circle>
-
-        <path d="M500 220 L392 152 L316 196 L268 132" fill="none" stroke="#2FE3A8" stroke-width="1.4" stroke-dasharray="5 6" opacity=".65" style="animation:dash 2.4s linear infinite;"></path>
-        <path d="M500 220 L604 286 L692 258 L760 306" fill="none" stroke="#2FE3A8" stroke-width="1.4" stroke-dasharray="5 6" opacity=".65" style="animation:dash 2.4s linear infinite;"></path>
-
-        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="26">
-          <circle cx="{{ d.x }}" cy="{{ d.y }}" r="{{ d.r }}" fill="{{ d.fill }}" opacity="{{ d.o }}"></circle>
-        </sc-for>
-
-        <circle cx="500" cy="220" r="7" fill="#2FE3A8"></circle>
-        <circle cx="500" cy="220" r="13" fill="none" stroke="#2FE3A8" stroke-width="1.5" opacity=".5"></circle>
-      </svg>
-
-      <div style="position:absolute; left:50%; top:calc(50% + 34px); transform:translateX(-50%); font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase; white-space:nowrap;">Where your reps are today</div>
-
-      <div style="position:absolute; left:8%; top:16%; border:1px solid #1F1F1F; background:rgba(12,12,12,.92); border-radius:10px; padding:11px 14px; backdrop-filter:blur(6px);">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#57534C; margin-bottom:5px;">WITHIN 15 MIN</div>
-        <div style="font-size:19px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;">38 accounts</div>
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+        <div style="display:flex; align-items:center; gap:8px; border:1px solid #232323; border-radius:8px; padding:8px 14px 8px 10px; font-size:13.5px; color:#F4F3F1;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border-radius:4px; background:#2FE3A8; color:#06231A; font-size:10px;">&#10022;</span>Cue
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; border:1px solid #1D4536; background:#132A22; border-radius:8px; padding:8px 14px; font-size:13.5px; color:#F4F3F1; font-weight:600;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#2FE3A8; flex-shrink:0;"></span>Workflows
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; border:1px solid #232323; border-radius:8px; padding:8px 14px; font-size:13.5px; color:#A8A29A;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#5B8FD9; flex-shrink:0;"></span>Campaigns
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; border:1px solid #232323; border-radius:8px; padding:8px 14px; font-size:13.5px; color:#A8A29A;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#E5A73D; flex-shrink:0;"></span>Map
+        </div>
       </div>
 
-      <div style="position:absolute; right:8%; top:24%; border:1px solid #1D4536; background:rgba(19,42,34,.9); border-radius:10px; padding:11px 14px; backdrop-filter:blur(6px);">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#2FE3A8; margin-bottom:5px;">NOT IN YOUR CRM</div>
-        <div style="font-size:19px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;">14 worth a stop</div>
+      <div style="border:1px solid #1F1F1F; border-radius:10px; background:#0F0F0F; padding:14px 16px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#A8A29A; margin-bottom:18px; text-align:left;">
+        <span style="color:#57534C;">&#8250;</span> When a customer's status flips to Canceled, wait 90 days, then create a win-back task for their rep.
       </div>
 
-      <div style="position:absolute; left:14%; bottom:13%; border:1px solid #1F1F1F; background:rgba(12,12,12,.92); border-radius:10px; padding:11px 14px; backdrop-filter:blur(6px);">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#57534C; margin-bottom:5px;">CANCELED, STILL CLOSE</div>
-        <div style="font-size:19px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;">9 to win back</div>
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+        <span style="width:6px; height:6px; border-radius:50%; background:#2FE3A8;"></span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#2FE3A8; text-transform:uppercase;">Running live.</span>
+      </div>
+      <div style="font-size:14px; color:#8F8A82; margin-bottom:20px; text-align:left;">Live the second you turn it on.</div>
+
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
+        <div style="border:1px solid #1F1F1F; border-radius:9px; background:#0F0F0F; padding:10px 14px; text-align:left;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.1em; color:#57534C; margin-bottom:4px;">TRIGGER</div>
+          <div style="font-size:13px; color:#F4F3F1; white-space:nowrap;">Status &#8594; Canceled</div>
+        </div>
+        <span style="color:#3A3A3A;">&#8594;</span>
+        <div style="border:1px solid #1F1F1F; border-radius:9px; background:#0F0F0F; padding:10px 14px; text-align:left;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.1em; color:#57534C; margin-bottom:4px;">WAIT</div>
+          <div style="font-size:13px; color:#F4F3F1; white-space:nowrap;">90 days</div>
+        </div>
+        <span style="color:#3A3A3A;">&#8594;</span>
+        <div style="border:1px solid #1F1F1F; border-radius:9px; background:#0F0F0F; padding:10px 14px; text-align:left;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.1em; color:#57534C; margin-bottom:4px;">THEN</div>
+          <div style="font-size:13px; color:#F4F3F1; white-space:nowrap;">Create task: win-back call</div>
+        </div>
       </div>
 
-      <div style="position:absolute; inset:auto 0 0 0; height:120px; background:linear-gradient(transparent,#0A0A0A);"></div>
+      <div style="font-size:14px; color:#2FE3A8; margin-bottom:22px; text-align:left;">42 accounts already qualify &#8212; this can fire on them today.</div>
+
+      <div style="display:flex; gap:10px;">
+        <a href="#system" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:10px 18px; font-size:13.5px; font-weight:500;" style-hover="border-color:#4A4A4A">View workflow</a>
+        <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:#2FE3A8; color:#06231A; border-radius:9px; padding:10px 18px; font-size:13.5px; font-weight:600;" style-hover="background:#7FF0C9; color:#06231A">Turn on</a>
+      </div>
     </div>
   </div>
 
@@ -455,14 +455,6 @@ const STRIPE_LINKS = {
   Standard: 'https://buy.stripe.com/7sYaEX1CK0mSerS3Td4Rq01'
 };
 
-const DOTS = [
-  [402,138,0],[356,178,0],[318,142,1],[430,196,0],[372,232,0],[300,214,0],
-  [268,168,1],[336,266,0],[416,278,0],[452,110,0],[254,240,0],[210,190,0],
-  [598,164,0],[642,208,0],[576,252,0],[688,178,1],[620,296,0],[556,196,0],
-  [716,240,0],[664,132,0],[744,196,0],[590,336,0],[672,344,1],[520,318,0],
-  [478,340,0],[398,318,0],[788,148,0],[236,300,0],[810,262,0],[184,254,0]
-];
-
 class Component extends DCLogic {
   state = { open: 0 };
 
@@ -480,12 +472,6 @@ class Component extends DCLogic {
     const accent = this.props.brandColor ?? '#2FE3A8';
     return {
       accent,
-      dots: DOTS.map(([x, y, hot]) => ({
-        x, y,
-        r: hot ? 4.5 : 3,
-        fill: hot ? accent : '#3D3A35',
-        o: hot ? 1 : 0.85
-      })),
       mapPins: (() => {
         let s = 1337;
         const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
