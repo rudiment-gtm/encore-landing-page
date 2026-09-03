@@ -389,7 +389,7 @@
         </div>
       </div>
 
-      <div style="font-size:13px; color:#6F6A64; margin-top:20px;">Already have an account? <a href="https://encore-solution.vercel.app/auth" style="color:#2FE3A8;">Sign in</a></div>
+      <div style="font-size:13px; color:#6F6A64; margin-top:20px;">Already have an account? <a href="https://encore-multitenant.vercel.app/auth" style="color:#2FE3A8;">Sign in</a></div>
     </div>
   </div>
 
@@ -937,10 +937,10 @@ class Component extends DCLogic {
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
-    fetch('https://ryyfoaekvrvxobfzpvcr.supabase.co/functions/v1/plg-signup', {
+    fetch('https://ngfilbqnnhhylgjexfws.supabase.co/functions/v1/plg-signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, redirectTo: 'https://encore-solution.vercel.app' })
+      body: JSON.stringify({ email: email, redirectTo: 'https://encore-multitenant.vercel.app' })
     })
       .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
       .then(function (result) {
