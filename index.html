@@ -79,7 +79,7 @@
 
     <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; padding-top:6px;">
       <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:#2FE3A8; color:#06231A; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:600;" style-hover="background:#7FF0C9; color:#06231A">Book a demo</a>
-      <a href="https://encore-solution.vercel.app/get-started" target="_blank" rel="noopener" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#4A4A4A">Start for free</a>
+      <a href="#signup" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#4A4A4A">Start for free</a>
     </div>
 
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#F4F3F1; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
@@ -369,6 +369,30 @@
   </div>
 
   <!-- PRICING -->
+  <!-- SIGNUP -->
+  <div id="signup" style="border-top:1px solid #1C1C1C; background:#0C0C0C;">
+    <div class="r-sec" style="max-width:640px; margin:0 auto; padding:96px 32px; text-align:center;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.14em; color:#2FE3A8; text-transform:uppercase;">Get started</div>
+      <div style="font-family:Poppins,sans-serif; font-size:34px; font-weight:600; letter-spacing:-.03em; line-height:1.2; margin-top:14px;">Get started with Encore</div>
+      <div style="font-size:16px; line-height:1.65; color:#8F8A82; margin-top:12px; text-wrap:pretty;">14 days free, no credit card required. We'll create your account after you verify your email.</div>
+
+      <form id="rSignupForm" style="margin-top:32px; border:1px solid #1F1F1F; border-radius:14px; background:#0A0A0A; padding:10px; display:flex; gap:8px; flex-wrap:wrap;">
+        <input id="rSignupEmail" type="email" required placeholder="you@company.com" style="flex:1; min-width:200px; background:transparent; border:none; outline:none; color:#F4F3F1; font-family:Manrope,sans-serif; font-size:15px; padding:12px 14px;">
+        <button id="rSignupBtn" type="submit" style="background:#2FE3A8; color:#06231A; border:none; border-radius:9px; padding:13px 22px; font-size:15px; font-weight:600; font-family:Manrope,sans-serif; cursor:pointer; white-space:nowrap;">Send sign-up link</button>
+      </form>
+      <div id="rSignupError" style="display:none; color:#F5A3A3; font-size:13.5px; margin-top:10px;"></div>
+      <div id="rSignupSuccess" style="display:none; margin-top:32px; border:1px solid #1D4536; background:#0F1E19; border-radius:14px; padding:22px 24px; text-align:left; display:flex; gap:14px; align-items:flex-start;">
+        <span style="font-size:20px; line-height:1;">✉️</span>
+        <div>
+          <div style="font-weight:600; color:#F4F3F1;">Check your email</div>
+          <div id="rSignupSuccessText" style="font-size:14px; color:#8F8A82; margin-top:4px;"></div>
+        </div>
+      </div>
+
+      <div style="font-size:13px; color:#6F6A64; margin-top:20px;">Already have an account? <a href="https://encore-solution.vercel.app/auth" style="color:#2FE3A8;">Sign in</a></div>
+    </div>
+  </div>
+
   <div id="pricing" style="border-top:1px solid #1C1C1C;">
     <div class="r-sec" style="max-width:1180px; margin:0 auto; padding:104px 32px;">
       <div style="display:flex; flex-direction:column; gap:16px; max-width:50ch; margin-bottom:52px;">
@@ -398,7 +422,7 @@
                 </div>
               </sc-for>
             </div>
-            <a href="{{ t.ctaHref }}" target="_blank" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
+            <a href="{{ t.ctaHref }}" target="{{ t.ctaTarget }}" rel="noopener" style="{{ t.ctaStyle }}">{{ t.cta }}</a>
             <a href="{{ t.buyNowHref }}" target="_blank" rel="noopener" style="{{ t.buyNowStyle }}">Or Buy Now</a>
           </div>
         </sc-for>
@@ -747,7 +771,8 @@ class Component extends DCLogic {
           credits: 'No enrichment credits',
           note: 'For the solopreneur running the whole book alone. No more working out of spreadsheets.',
           featured: false,
-          ctaHref: 'https://encore-solution.vercel.app/get-started',
+          ctaHref: '#signup',
+          ctaTarget: '_self',
           buyNowHref: 'https://buy.stripe.com/bJebJ1dls5Hc2Ja61l4Rq00',
           features: [
             { t: 'Map Intelligence', ok: true },
@@ -765,7 +790,8 @@ class Component extends DCLogic {
           credits: 'No enrichment credits',
           note: 'Everything in Base, wired live into the CRM you already run.',
           featured: false,
-          ctaHref: 'https://encore-solution.vercel.app/get-started',
+          ctaHref: '#signup',
+          ctaTarget: '_self',
           buyNowHref: 'https://buy.stripe.com/7sYaEX1CK0mSerS3Td4Rq01',
           features: [
             { t: 'Two-way CRM sync \u2014 changes on the map write back in real time', ok: true },
@@ -783,6 +809,7 @@ class Component extends DCLogic {
           note: 'The whole product. Contacts found and verified, and a channel straight to us.',
           featured: true,
           ctaHref: 'https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d',
+          ctaTarget: '_blank',
           features: [
             { t: 'Two-way CRM sync \u2014 changes on the map write back in real time', ok: true },
             { t: 'AI Agent', ok: true },
@@ -799,6 +826,7 @@ class Component extends DCLogic {
           note: 'Larger teams, several branches, or integrations beyond your CRM.',
           featured: false,
           ctaHref: 'https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d',
+          ctaTarget: '_blank',
           features: [
             { t: 'Everything in Growth, sized to your organization', ok: true },
             { t: 'Enrichment credit pool scoped to your volume', ok: true },
@@ -875,6 +903,64 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+
+<script>
+(function () {
+  // Plain, standalone signup handler — deliberately isolated from the DC
+  // component above so it works regardless of that framework's own render
+  // cycle. Posts straight to the same plg-signup edge function the app's
+  // own /get-started page uses, so a lead captured here lands in the exact
+  // same place (plg_signups + HubSpot + a real Supabase invite email).
+  //
+  // Delegated on `document` rather than attached to the form element
+  // directly: support.js re-mounts the whole reactive tree after initial
+  // parse (even the static parts, since it manages the entire <x-dc> root),
+  // which replaces #rSignupForm with a fresh DOM node and silently drops
+  // any listener attached to the original one. A delegated listener keyed
+  // on id survives that re-mount because it re-queries the DOM at event
+  // time instead of holding a stale element reference.
+  document.addEventListener('submit', function (e) {
+    if (!e.target || e.target.id !== 'rSignupForm') return;
+    e.preventDefault();
+
+    var form = e.target;
+    var emailInput = document.getElementById('rSignupEmail');
+    var btn = document.getElementById('rSignupBtn');
+    var errorEl = document.getElementById('rSignupError');
+    var successEl = document.getElementById('rSignupSuccess');
+    var successText = document.getElementById('rSignupSuccessText');
+    var email = emailInput.value.trim();
+    if (!email) return;
+
+    errorEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch('https://ryyfoaekvrvxobfzpvcr.supabase.co/functions/v1/plg-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, redirectTo: 'https://encore-solution.vercel.app' })
+    })
+      .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+      .then(function (result) {
+        if (!result.ok || (result.data && result.data.error)) {
+          throw new Error((result.data && result.data.error) || 'Could not send the signup link. Please try again.');
+        }
+        successText.textContent = 'We sent a link to ' + email + '. Click it to activate your 14-day trial.';
+        form.style.display = 'none';
+        successEl.style.display = 'flex';
+      })
+      .catch(function (err) {
+        errorEl.textContent = err.message || 'Could not send the signup link. Please try again.';
+        errorEl.style.display = 'block';
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Send sign-up link';
+      });
+  });
+})();
 </script>
 </body>
 </html>
