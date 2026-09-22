@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>encore — the GTM map for field teams</title>
-<meta name="description" content="Keep. Win back. Go get. Your whole service area, mapped the way you actually sell it. Built for field teams. From $149/mo.">
+<meta name="description" content="Keep. Win back. Go get. Your whole service area, mapped the way you actually sell it. Built for field teams. From $99/mo.">
 <link rel="icon" href="/favicon.svg">
 <script src="/support.js"></script>
 </head>
@@ -82,7 +82,7 @@
       <a href="#signup" style="border:1px solid #2B2B2B; color:#F4F3F1; border-radius:9px; padding:13px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#4A4A4A">Start for free</a>
     </div>
 
-    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#F4F3F1; letter-spacing:.04em;">From $149/mo. No seats, no per-user pricing.</div>
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#F4F3F1; letter-spacing:.04em;">From $99/mo. No seats, no per-user pricing.</div>
   </div>
 
   <!-- GRAPHIC: Cue, running live -->
@@ -767,8 +767,8 @@ class Component extends DCLogic {
       ],
       tiers: [
         {
-          badge: '', size: 'Entry', name: 'Base', price: '$149', per: '/mo',
-          credits: 'No enrichment credits',
+          badge: '', size: 'Entry', name: 'Base', price: '$99', per: '/mo',
+          credits: '500 credits / mo',
           note: 'For the solopreneur running the whole book alone. No more working out of spreadsheets.',
           featured: false,
           ctaHref: '#signup',
@@ -781,13 +781,13 @@ class Component extends DCLogic {
             { t: 'Route your day and log field activity', ok: true },
             { t: 'Workflows', ok: true },
             { t: 'Two-way CRM sync', ok: false },
-            { t: 'Data enrichment', ok: false },
+            { t: 'Data enrichment credits', ok: true },
             { t: 'Dedicated Slack channel', ok: false }
           ]
         },
         {
-          badge: '', size: 'Connected', name: 'Standard', price: '$299', per: '/mo',
-          credits: 'No enrichment credits',
+          badge: '', size: 'Connected', name: 'Standard', price: '$199', per: '/mo',
+          credits: '2,000 credits / mo',
           note: 'Everything in Base, wired live into the CRM you already run.',
           featured: false,
           ctaHref: '#signup',
@@ -798,13 +798,12 @@ class Component extends DCLogic {
             { t: 'AI Agent', ok: true },
             { t: 'Route your day and log field activity', ok: true },
             { t: 'Workflows', ok: true },
-            { t: 'Sequences', ok: true },
-            { t: 'Data enrichment', ok: false },
+            { t: 'Data enrichment credits', ok: true },
             { t: 'Dedicated Slack channel', ok: false }
           ]
         },
         {
-          badge: 'Most teams', size: 'Full', name: 'Growth', price: '$599', per: '/mo',
+          badge: 'Most teams', size: 'Full', name: 'Growth', price: '$499', per: '/mo',
           credits: '5,000 credits / mo',
           note: 'The whole product. Contacts found and verified, and a channel straight to us.',
           featured: true,
@@ -815,7 +814,6 @@ class Component extends DCLogic {
             { t: 'AI Agent', ok: true },
             { t: 'Route your day and log field activity', ok: true },
             { t: 'Workflows', ok: true },
-            { t: 'Sequences', ok: true },
             { t: 'Data enrichment credits', ok: true },
             { t: 'Dedicated Slack channel', ok: true }
           ]
