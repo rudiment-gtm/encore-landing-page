@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>encore — the GTM map for field teams</title>
 <meta name="description" content="Keep. Win back. Go get. Your whole service area, mapped the way you actually sell it. Built for field teams. From $99/mo.">
-<script src="/support.js"></script>
+<script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -81,7 +81,7 @@
     <p style="margin:0; font-size:19px; line-height:1.6; color:var(--ink2); max-width:52ch; text-wrap:pretty;">Your whole service area, mapped the way you actually sell it.</p>
     <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; padding-top:4px;">
       <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:{{accent}}; color:var(--on-accent); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:600; box-shadow:0 1px 2px rgba(21,23,28,.12);" style-hover="background:var(--accent-hover); color:var(--on-accent)">Book a demo</a>
-      <a href="/signup.html" style="background:var(--surface); border:1px solid var(--line-strong); color:var(--ink); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#AEB3BC; color:var(--ink)">Start for free</a>
+      <a href="Signup.dc.html" style="background:var(--surface); border:1px solid var(--line-strong); color:var(--ink); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#AEB3BC; color:var(--ink)">Start for free</a>
     </div>
     <div style="font-family:'Geist Mono',monospace; font-size:12.5px; color:var(--ink3); letter-spacing:.02em;">From $99/mo. No seats, no per-user pricing.</div>
   </div>
@@ -861,7 +861,7 @@
         <h2 style="margin:0; font-size:56px; font-weight:600; letter-spacing:-.045em; line-height:1.04; max-width:12ch; text-wrap:balance;">See the day before you drive it.</h2>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:{{accent}}; color:var(--on-accent); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:600;" style-hover="background:var(--accent-hover); color:var(--on-accent)">Book a demo</a>
-          <a href="/signup.html" style="background:var(--surface); border:1px solid var(--line-strong); color:var(--ink); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:500;" style-hover="border-color:var(--ink4); color:var(--ink)">Start for free</a>
+          <a href="Signup.dc.html" style="background:var(--surface); border:1px solid var(--line-strong); color:var(--ink); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:500;" style-hover="border-color:var(--ink4); color:var(--ink)">Start for free</a>
         </div>
       </div>
       <div class="r-close-map" style="position:relative; width:600px; height:460px;">
@@ -927,16 +927,16 @@ const CUE_TABS = [
     actions: [{ t: 'View workflow', primary: false }, { t: 'Turn on', primary: true }]
   },
   {
-    id: 1, kind: 'flow', label: 'Deals', dot: '#4C5FD5', totalSteps: 6,
-    prompt: 'Move Wasatch Ridge HOA to Won and log the $4,800 renewal.',
-    reply: 'Done — here’s what changed:',
+    id: 1, kind: 'flow', label: 'Campaigns', dot: '#4C5FD5', totalSteps: 6,
+    prompt: 'New leads that finished enrichment this week — start our standard outbound sequence.',
+    reply: 'Found 312 with nothing queued. Here’s the play:',
     chain: [
-      { l: 'DEAL', v: 'Wasatch Ridge HOA · $4,800' },
-      { l: 'STAGE', v: 'Won' },
-      { l: 'PIPELINE', v: 'Updated' }
+      { l: 'TRIGGER', v: 'Lead enriched' },
+      { l: 'SEQUENCE', v: '3 emails + call task' },
+      { l: 'SEND', v: 'Mon 8:00 AM' }
     ],
-    stat: '$4,800 moved to Won — pipeline total updated.',
-    actions: [{ t: 'View deal', primary: false }, { t: 'Open pipeline', primary: true }]
+    stat: '312 leads queued — first email sends Monday.',
+    actions: [{ t: 'Preview sequence', primary: false }, { t: 'Launch', primary: true }]
   },
   {
     id: 2, kind: 'map', label: 'Map', dot: '#D6453D', totalSteps: 5,
@@ -1064,7 +1064,7 @@ class Component extends DCLogic {
       themeClass: dark ? 'enc-dark' : 'enc-light',
       themeLabel: dark ? 'Switch to light mode' : 'Switch to dark mode',
       toggleTheme: () => this.setState(st => ({ dark: !st.dark })),
-      logoSrc: dark ? '/encore-logo-dark.png' : '/encore-logo.png',
+      logoSrc: dark ? '/_blob/f3ec50d0c2f47710ebd2edcd700c15f6' : '/_blob/da4c6f572e82ee32e8aa093853732188',
 
       mapPins: (() => {
         const rnd = seeded(1337);
@@ -1239,7 +1239,7 @@ class Component extends DCLogic {
           badge: '', size: 'Entry', name: 'Base', price: '$99', per: '/mo',
           credits: '500 credits / mo',
           note: 'For the solopreneur running the whole book alone. No more working out of spreadsheets.',
-          featured: false, ctaHref: '/signup.html', ctaTarget: '_self',
+          featured: false, ctaHref: 'Signup.dc.html', ctaTarget: '_self',
           buyNowHref: 'https://buy.stripe.com/28EaEXgxEglQgA061l4Rq04',
           features: [
             { t: 'Map Intelligence', ok: true },
@@ -1256,7 +1256,7 @@ class Component extends DCLogic {
           badge: '', size: 'Connected', name: 'Standard', price: '$199', per: '/mo',
           credits: '2,000 credits / mo',
           note: 'Everything in Base, wired live into the CRM you already run.',
-          featured: false, ctaHref: '/signup.html', ctaTarget: '_self',
+          featured: false, ctaHref: 'Signup.dc.html', ctaTarget: '_self',
           buyNowHref: 'https://buy.stripe.com/6oU00j818c5A6ZqgFZ4Rq05',
           features: [
             { t: 'Two-way CRM sync — changes on the map write back in real time', ok: true },
