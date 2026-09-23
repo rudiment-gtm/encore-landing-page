@@ -83,7 +83,7 @@
       <a href="https://meetings-na2.hubspot.com/robert-clark?uuid=3f26582f-d099-44ba-9064-9df2f4d68b9d" target="_blank" rel="noopener" style="background:{{accent}}; color:var(--on-accent); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:600; box-shadow:0 1px 2px rgba(21,23,28,.12);" style-hover="background:var(--accent-hover); color:var(--on-accent)">Book a demo</a>
       <a href="/signup" style="background:var(--surface); border:1px solid var(--line-strong); color:var(--ink); border-radius:9px; padding:14px 24px; font-size:15px; font-weight:500;" style-hover="border-color:#AEB3BC; color:var(--ink)">Start for free</a>
     </div>
-    <div style="font-family:'Geist Mono',monospace; font-size:12.5px; color:var(--ink3); letter-spacing:.02em;">From $99/mo. No seats, no per-user pricing.</div>
+    <div style="font-family:'Geist Mono',monospace; font-size:12.5px; color:var(--ink3); letter-spacing:.02em;">From $99/mo.</div>
   </div>
 
   <!-- HERO PRODUCT FRAME -->
@@ -754,7 +754,7 @@
     <div style="display:flex; flex-direction:column; gap:20px;">
       <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.12em; color:var(--accent-text); text-transform:uppercase;">Included every month</div>
       <h2 style="margin:0; font-size:40px; font-weight:600; letter-spacing:-.04em; line-height:1.12; text-wrap:balance;">Contact data comes with the plan.</h2>
-      <p style="margin:0; font-size:17px; line-height:1.7; color:var(--ink2); text-wrap:pretty;">Pull a company profile, find the facilities director, get a verified email and a direct dial. Growth includes 5,000 enrichment credits every month — no separate data vendor to shop for, no per-seat license, no annual contract stacked on top of ours.</p>
+      <p style="margin:0; font-size:17px; line-height:1.7; color:var(--ink2); text-wrap:pretty;">Pull a company profile, find the facilities director, get a verified email and a direct dial. Growth includes 5,000 enrichment credits every month — no separate data vendor to shop for, no annual contract stacked on top of ours.</p>
       <div style="display:flex; flex-direction:column; gap:12px; padding-top:4px;">
         <sc-for list="{{ enrichPoints }}" as="p" hint-placeholder-count="3">
           <div style="display:flex; gap:12px; align-items:flex-start;">
@@ -798,8 +798,8 @@
     <div class="r-sec" style="max-width:1200px; margin:0 auto; padding:104px 32px;">
       <div style="display:flex; flex-direction:column; gap:14px; max-width:54ch; margin-bottom:48px;">
         <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.12em; color:var(--accent-text); text-transform:uppercase;">Pricing</div>
-        <h2 style="margin:0; font-size:40px; font-weight:600; letter-spacing:-.04em; line-height:1.12;">Pricing that scales with usage, not headcount.</h2>
-        <p style="margin:0; font-size:16px; line-height:1.65; color:var(--ink2); text-wrap:pretty;">Every plan includes the map, AI chat, day routing and field activity logging. CRM sync, enrichment credits and a dedicated Slack channel come in higher up. Add the office manager, the owner, the new hire — the price does not move.</p>
+        <h2 style="margin:0; font-size:40px; font-weight:600; letter-spacing:-.04em; line-height:1.12;">Pricing that scales with usage.</h2>
+        <p style="margin:0; font-size:16px; line-height:1.65; color:var(--ink2); text-wrap:pretty;">Every plan includes the map, AI chat, day routing and field activity logging. CRM sync, enrichment credits and a dedicated Slack channel come in higher up.</p>
       </div>
 
       <div class="r-tiers" style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:repeat(10,auto); column-gap:14px; row-gap:0;">
@@ -907,7 +907,6 @@ const FAQS = [
   { q: 'How is this different from the mapping tool in our CRM?', a: 'CRM maps plot what you already have. This one also shows what you are missing — properties in your service area that are not on your list yet — and gives you the verified contact at each one. Filters, service areas and routes are built around how your team actually dispatches, not a generic template.' },
   { q: 'We only have a couple of salespeople. Is this overkill?', a: 'That is exactly who it is for. A three-rep team has the same routing and prioritization problem as a thirty-rep team and none of the back office to solve it. Smaller book, faster onboarding, same price.' },
   { q: 'What does onboarding look like?', a: 'We connect whatever system your accounts live in, import and clean the list, set up your service areas and filters, and train your team. Included in every plan, no setup fee. Most teams are live within a week.' },
-  { q: 'Why no per-seat pricing?', a: 'Charging per seat punishes you for putting the map in front of more people, which is the whole point. Plans are priced on features and enrichment volume instead, so you only move up when you actually need more.' },
   { q: 'What happens in the Slack channel?', a: 'On Growth and Custom, a shared channel with the people who built your map. Filter requests, data questions, a rep who needs a route rebuilt before Tuesday morning. Same-day responses during business hours.' },
   { q: 'Our accounts live in QuickBooks and a spreadsheet.', a: 'Common, and fine. We have pulled account lists out of service software, accounting systems, CRMs and plain CSVs. If you can export it, we can map it.' },
   { q: 'Is our data ours?', a: 'Yes. Everything exports whenever you want it, and the two-way sync means your CRM stays the system of record.' }
@@ -1283,7 +1282,7 @@ class Component extends DCLogic {
           ]
         },
         {
-          badge: '', size: 'Billed monthly', name: 'Custom', price: 'Get pricing', per: '',
+          badge: '', size: 'Billed monthly', name: 'Custom', price: 'Get pricing', per: 'per seat',
           credits: 'Credits to scope',
           note: 'Larger teams, several branches, or integrations beyond your CRM.',
           featured: false,
@@ -1294,8 +1293,7 @@ class Component extends DCLogic {
             { t: 'Priority support with a named account lead', ok: true },
             { t: 'API access and custom endpoints', ok: true },
             { t: 'Custom integrations beyond your CRM', ok: true },
-            { t: 'Fully done-for-you data as a service', ok: true },
-            { t: 'Fully done-for-you outbound as a service', ok: true }
+            { t: 'Fully done-for-you data as a service', ok: true }
           ]
         }
       ].map(t => ({
