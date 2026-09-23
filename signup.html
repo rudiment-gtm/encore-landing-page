@@ -21,11 +21,11 @@
   input::placeholder { color:var(--ink4); }
   .enc-light { --bg:#F6F7F9; --surface:#FFFFFF; --surface2:#F7F8FA; --chip:#F1F2F4; --line:#E4E6EA; --line-soft:#EEF0F3; --line-strong:#D7DAE0; --ink:#15171C; --ink2:#4B5260; --ink2b:#3A404B; --ink3:#6B7280; --ink4:#8A909B; --map-bg:#F3F3F3; --map-patch:#E8E8E8; --map-park:#ECEEEC; --map-water:#DEDFE1; --map-casing:#E2E2E2; --road:#FFFFFF; --map-label:#7A7A7A; --accent-text:#2A7F5B; --green-tint:#E6F3EC; --green-ink:#1F6346; --nav-bg:rgba(255,255,255,.9); --ink-btn:#15171C; --ink-btn-text:#FFFFFF; --shadow:rgba(21,23,28,.25); --on-accent:#FFFFFF; --accent-hover:#1F6346; --app-green:#2F8F68; --app-bubble:#34936D; --close-bg:#DDDEE2; --tile:#FFFFFF; --tile-line:#E2E3E6; --tile-inner:#E4E4E6; --tile-hi:#C7D6D2; --tile-hi-dot:#86B6A4; --route:#2F8F68; --route-case:#FFFFFF; --stop-blue:#3B5FD0; --stop-green:#2F8F68; --stop-purple:#8B1FC9; --pin-core:#FFFFFF; --fade:#F4F5F7; --tile-shadow:0 1px 2px rgba(21,23,28,.06); --fade:#F4F5F7; --tile-shadow:0 1px 2px rgba(21,23,28,.06); }
   .enc-dark { --bg:#0E0F10; --surface:#16171A; --surface2:#1B1C1F; --chip:#24262B; --line:#2A2C31; --line-soft:#212327; --line-strong:#3A3D44; --ink:#F2F2F0; --ink2:#B9BCC3; --ink2b:#CDD0D5; --ink3:#959AA4; --ink4:#7A7F89; --map-bg:#1A1B1E; --map-patch:#202125; --map-park:#1E2320; --map-water:#121315; --map-casing:#2E3034; --road:#2A2C30; --map-label:#8C9098; --accent-text:#F2F2F0; --green-tint:#26282D; --green-ink:#F2F2F0; --nav-bg:rgba(14,15,16,.86); --ink-btn:#F2F2F0; --ink-btn-text:#0E0F10; --shadow:rgba(0,0,0,.6); --on-accent:#0E0F10; --accent-hover:#FFFFFF; --app-green:#F2F2F0; --app-bubble:#F2F2F0; --close-bg:#101010; --tile:#181818; --tile-line:#242424; --tile-inner:#262626; --tile-hi:#2A2A2A; --tile-hi-dot:#5A5A5A; --route:#F4F3F1; --route-case:#101010; --stop-blue:#5B7BE0; --stop-green:#4BD393; --stop-purple:#A36BE8; --pin-core:#101010; --fade:#101010; --tile-shadow:none; --fade:#101010; --tile-shadow:none; color-scheme:dark; }
-  @media (max-width: 900px) { .r-split { grid-template-columns:1fr !important; } .r-art { display:none !important; } }
+  @media (max-width: 900px) { .r-split { grid-template-columns:1fr !important; } .r-art { display:none !important; } .r-form { padding:48px 24px !important; border-left:none !important; } }
 </style>
 </helmet>
-<div class="{{ themeClass }}" style="width:100%; min-height:900px; background:var(--bg); color:var(--ink);">
-  <div class="r-split" style="display:grid; grid-template-columns:minmax(0, 1fr) 480px; min-height:900px;">
+<div class="{{ themeClass }}" style="width:100%; min-height:100vh; min-height:100dvh; background:var(--bg); color:var(--ink);">
+  <div class="r-split" style="display:grid; grid-template-columns:minmax(0, 1fr) 480px; min-height:100vh; min-height:100dvh;">
 
     <div class="r-art" style="position:relative; overflow:hidden; background:var(--close-bg);">
       <div style="position:absolute; left:4px; top:50%; width:2122px; height:1518px; transform:translateY(-50%);">
@@ -44,11 +44,11 @@
 </svg>
       </div>
       <div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, var(--fade) 0%, transparent 16%, transparent 80%, var(--fade) 100%);"></div>
-      <a href="Main.dc.html" aria-label="encore home" style="position:absolute; left:40px; top:38px; display:block;"><img src="{{ logoSrc }}" alt="encore" style="height:40px; width:auto; display:block;"></a>
+      <a href="/" aria-label="encore home" style="position:absolute; left:40px; top:38px; display:block;"><img src="{{ logoSrc }}" alt="encore" style="height:40px; width:auto; display:block;"></a>
       <div style="position:absolute; left:42px; bottom:56px; font-size:40px; font-weight:500; letter-spacing:-.03em; line-height:1.15; max-width:8.5ch; color:var(--ink);">See the day before you drive it.</div>
     </div>
 
-    <div style="position:relative; background:var(--bg); border-left:1px solid var(--line); display:flex; align-items:center; padding:48px 64px;">
+    <div class="r-form" style="position:relative; background:var(--bg); border-left:1px solid var(--line); display:flex; align-items:center; padding:48px 64px;">
       <div style="width:100%; max-width:352px; display:flex; flex-direction:column;">
         <h1 style="margin:0; font-size:26px; font-weight:500; letter-spacing:-.02em;">Create account</h1>
         <p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:var(--ink2);">14 days free, no credit card required. We'll create your account after you verify your email.</p>
