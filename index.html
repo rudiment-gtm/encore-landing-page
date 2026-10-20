@@ -368,16 +368,13 @@
   <div class="r-sec" style="max-width:1200px; margin:0 auto; padding:72px 32px 0; display:flex; flex-direction:column; align-items:center; gap:18px;">
     <div style="font-size:14.5px; color:var(--ink2); text-align:center;">Anywhere a rep covers ground — territory sales, field service, or a route.</div>
     <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:900px;">
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Landscaping</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Pest &amp; lawn</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Facilities</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Snow &amp; ice</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Building products</span>
       <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Medical device</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Industrial supply</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Equipment dealers</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Commercial insurance</span>
-      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Route-based service</span>
+      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Pharmaceutical</span>
+      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Dental equipment</span>
+      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">HVAC &amp; commercial services</span>
+      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Restaurant software</span>
+      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Facility management</span>
+      <span style="background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:13px; color:var(--ink2b);">Door-to-door</span>
     </div>
   </div>
 
@@ -900,6 +897,10 @@
         <a href="/privacy" style="color:var(--ink3);" style-hover="color:var(--ink)">Privacy</a>
         <a href="/terms" style="color:var(--ink3);" style-hover="color:var(--ink)">Terms</a>
       </div>
+      <div style="display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ink2); border:1px solid var(--line); border-radius:8px; padding:6px 11px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.62c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.88 1.15 9.13.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.05-.52 2.68-1.28z"/></svg>
+        <span>Available on iOS</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1284,7 +1285,7 @@ class Component extends DCLogic {
           ]
         },
         {
-          badge: '', size: 'Billed monthly', name: 'Custom', price: 'Get pricing', per: 'per seat',
+          badge: '', size: 'Billed monthly', name: 'Custom', price: 'Get pricing', per: '',
           credits: 'Credits to scope',
           note: 'Larger teams, several branches, or integrations beyond your CRM.',
           featured: false,
