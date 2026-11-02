@@ -1238,7 +1238,7 @@ class Component extends DCLogic {
 
       tiers: [
         {
-          badge: '', size: 'Entry', name: 'Base', price: 'Get a quote', per: '',
+          badge: '', size: 'Entry', name: 'Base', price: 'Get pricing', per: '',
           credits: '500 credits / mo',
           note: 'For the solopreneur running the whole book alone. No more working out of spreadsheets.',
           featured: false, ctaHref: 'https://app.fieldencore.com/get-started', ctaTarget: '_self',
@@ -1255,7 +1255,7 @@ class Component extends DCLogic {
           ]
         },
         {
-          badge: '', size: 'Connected', name: 'Standard', price: 'Get a quote', per: '',
+          badge: '', size: 'Connected', name: 'Standard', price: 'Get pricing', per: '',
           credits: '2,000 credits / mo',
           note: 'Everything in Base, wired live into the CRM you already run.',
           featured: false, ctaHref: 'https://app.fieldencore.com/get-started', ctaTarget: '_self',
@@ -1270,7 +1270,7 @@ class Component extends DCLogic {
           ]
         },
         {
-          badge: 'Most teams', size: 'Full', name: 'Growth', price: 'Get a quote', per: '',
+          badge: 'Most teams', size: 'Full', name: 'Growth', price: 'Get pricing', per: '',
           credits: '5,000 credits / mo',
           note: 'The whole product. Contacts found and verified, and a channel straight to us.',
           featured: true,
@@ -1316,7 +1316,7 @@ class Component extends DCLogic {
           markStyle: { color: f.ok ? accent : '#B4B9C1', fontSize: '13px', fontWeight: 700, lineHeight: 1.6, flexShrink: 0, width: '12px' },
           textStyle: { fontSize: '14px', lineHeight: 1.55, color: f.ok ? 'var(--ink2b)' : 'var(--ink4)' }
         })),
-        cta: t.price === 'Get pricing' ? 'Talk to us'
+        cta: t.name === 'Custom' ? 'Talk to us'
           : (t.name === 'Base' || t.name === 'Standard') ? 'Start for free'
           : 'Book a demo',
         ctaStyle: t.featured
